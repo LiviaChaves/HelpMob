@@ -248,6 +248,7 @@ physics.setDrawMode("hybrid")
 	
 		local sceneGroup = self.view
 		-- Code here runs prior to the removal of scene's view
+		physics.stop()
 	
 	end
 	

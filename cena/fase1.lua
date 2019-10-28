@@ -20,7 +20,7 @@ physics.setDrawMode("hybrid")
 
 
 
-		-- -----------------------------------------------------------------------------------
+	-- -----------------------------------------------------------------------------------
 	-- Code outside of the scene event functions below will only be executed ONCE unless
 	-- the scene is removed entirely (not recycled) via "composer.removeScene()"
 	-- -----------------------------------------------------------------------------------
@@ -28,7 +28,7 @@ physics.setDrawMode("hybrid")
 
 	local function CenaVMenu()
 		audio.stop( 1 )
-        composer.removeHidden ("cena.fase1") 
+        composer.removeScene ("cena.fase1") 
 		composer.gotoScene("cena.menu" , {effect= "crossFade", time= 500})
 		menus = audio.loadSound( "music/menus.mp3" )
 		audio.play( menus, { channel=1, loops=-1 })
@@ -366,6 +366,7 @@ physics.setDrawMode("hybrid")
 	
 		local sceneGroup = self.view
 		-- Code here runs prior to the removal of scene's view
+		physics.stop()
 	
 	end
 	
