@@ -487,16 +487,6 @@ end
         physics.addBody( forma55, "static")
         physics.addBody( forma56, "static")
         physics.addBody( forma57, "static")
-
-
-
-
-
-
-
-
-
-	----
 	
 
 	--	physics.addBody(teste,"static")

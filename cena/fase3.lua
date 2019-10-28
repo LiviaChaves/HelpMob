@@ -16,7 +16,7 @@ local h = display.contentHeight
 local physics = require( "physics" )
 physics.start()
 physics.setGravity(0, 0)
---physics.setDrawMode("hybrid")
+physics.setDrawMode("hybrid")
 
 
 
@@ -28,7 +28,9 @@ physics.setGravity(0, 0)
 
 	local function CenaVMenu()
 		audio.stop( 1 )
-        composer.removeScene( "cena.fase1" )
+		composer.removeScene( "cena.fase3" )
+		audio.play(click, { channel=2 })
+        audio.setVolume( 2.0, { channel=2 } )
 		composer.gotoScene("cena.menu" , {effect= "crossFade", time= 500})
 		menus = audio.loadSound( "music/menus.mp3" )
 		audio.play( menus, { channel=1, loops=-1 })
@@ -72,12 +74,42 @@ physics.setGravity(0, 0)
 
 		
 	--add a plataforma3
+	
+	
 		local plataforma3 = display.newImage(backGroup,"Imagens/plataforma3.png")
 		plataforma3.x = display.contentCenterX
 		plataforma3.y = display.contentCenterY
 
-	
 		
+		local forma= display.newImageRect(backGroup,"formas/forma.png",10,44)
+		forma.x = 253
+		forma.y = 427
+
+		local forma2= display.newImageRect(backGroup,"formas/forma.png",60,10)
+		forma2.x = 283
+		forma2.y = 412
+
+		local forma3= display.newImageRect(backGroup,"formas/forma.png",10,100)
+	    forma3.x = 217
+		forma3.y = 427
+		
+		local forma4= display.newImageRect(backGroup,"formas/forma.png",53,10)
+		forma4.x = 195
+		forma4.y = 454
+
+		local forma5= display.newImageRect(backGroup,"formas/forma.png",86,10)
+		forma5.x = 256
+		forma5.y = 370
+
+		local forma6= display.newImageRect(backGroup,"formas/forma.png",10,44)
+		forma6.x = 293
+		forma6.y = 357
+
+
+	 
+
+		
+
 
 	-- add o mob
 		local mob = display.newImage(mainGroup,"Imagens/mob.png")
@@ -89,7 +121,6 @@ physics.setGravity(0, 0)
 		vmenu.x=20
 		vmenu.y=-25
 		vmenu:addEventListener("tap", CenaVMenu)
-
 
 	
 
@@ -191,12 +222,16 @@ physics.setGravity(0, 0)
 		Runtime:addEventListener("enterFrame", update)-- dispara a função update
 
 		----------------------------------------
+			
+		physics.addBody( forma, "static")
+		physics.addBody( forma2, "static")
+		physics.addBody( forma3, "static")
+		physics.addBody( forma4, "static")
+		physics.addBody( forma5, "static")
+		physics.addBody( forma6, "static")
 
 		-----------------------------------------
 	
-
-		
-		
 		physics.addBody( mob, "dynamic" )
 		mob.isFixedRotation = true
 
@@ -204,6 +239,7 @@ physics.setGravity(0, 0)
 		sceneGroup:insert(backGroup)
 		sceneGroup:insert(mainGroup)
 		sceneGroup:insert(uiGroup)
+		
 		
 	end
 		  
