@@ -48,7 +48,9 @@ physics.setDrawMode("hybrid")
 
 	-- create()
 	function scene:create( event )
-		
+	
+	   local sceneGroup = self.view
+
 	audio.reserveChannels( 1 )
     audio.reserveChannels( 2 )
 
@@ -59,13 +61,10 @@ physics.setDrawMode("hybrid")
 
 
 	
-	   local sceneGroup = self.view
-
-	
 	---add o fundo da fase1
-		local fundo1 = display.newImageRect(backGroup,"Imagens/fundo1.png",540,960)
-		fundo1.x = display.contentCenterX
-		fundo1.y = display.contentCenterY
+	local fundo1 = display.newImageRect(backGroup,"Imagens/fundo1.png",540,960)
+	fundo1.x = display.contentCenterX
+	fundo1.y = display.contentCenterY
 	
 
 	-------------------------------------------------------------

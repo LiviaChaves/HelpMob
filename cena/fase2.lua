@@ -27,12 +27,12 @@ physics.setDrawMode("hybrid")
 	-- Code outside of the scene event functions below will only be executed ONCE unless
 	-- the scene is removed entirely (not recycled) via "composer.removeScene()"
 	-- -----------------------------------------------------------------------------------
-	--local function Cenafase3()
-	--audio.stop( 1 )
-    --composer.removeScene( "cena.fase2" )
-   -- composer.gotoScene("cena.fase3" , {effect= "crossFade", time= 500})
+	local function Cenafase3()
+	audio.stop( 1 )
+    composer.removeScene( "cena.fase2" )
+    composer.gotoScene("cena.fase3" , {effect= "crossFade", time= 500})
 
-	--end
+end
 
 	local function CenaVMenu()
 		audio.stop( 1 )
@@ -54,7 +54,7 @@ physics.setDrawMode("hybrid")
 
     musi2 = audio.loadSound( "music/musi2.wav" )
     click = audio.loadSound("music/click.wav")
-    audio.play( musi1, { channel=1, loops=-1 })
+    audio.play( musi2, { channel=1, loops=-1 })
     audio.setVolume(0.6, {channel=1})
 
 
@@ -321,11 +321,11 @@ physics.setDrawMode("hybrid")
 		vmenu.y=-25
 		vmenu:addEventListener("tap", CenaVMenu)
 
-   --add o cristal verde
-		--local teste= display.newImage(mainGroup,"Imagens/teste.png")
-		--teste.x=display.contentCenterX
-		--teste.y=display.contentCenterY-230
-		--teste:addEventListener("tap", Cenafase2)
+   --add o cristal branco
+		local cristalB= display.newImage(mainGroup,"Imagens/cristalB.png")
+		cristalB.x=300
+		cristalB.y=display.contentCenterY-230
+		cristalB:addEventListener("tap", Cenafase3)
 
 	
 
