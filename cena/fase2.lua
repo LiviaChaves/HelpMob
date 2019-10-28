@@ -48,6 +48,8 @@ end
 
 	-- create()
 	function scene:create( event )
+	
+		local sceneGroup = self.view
 		
 	audio.reserveChannels( 1 )
     audio.reserveChannels( 2 )
@@ -58,8 +60,6 @@ end
     audio.setVolume(0.6, {channel=1})
 
 
-	
-	   local sceneGroup = self.view
 
 	
 	---add o fundo da fase2
