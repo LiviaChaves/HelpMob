@@ -16,7 +16,7 @@ local h = display.contentHeight
 local physics = require( "physics" )
 physics.start()
 physics.setGravity(0, 0)
-physics.setDrawMode("hybrid")
+--physics.setDrawMode("hybrid")
 
 
 
@@ -54,7 +54,7 @@ physics.setDrawMode("hybrid")
 	audio.reserveChannels( 1 )
     audio.reserveChannels( 2 )
 
-    musi3 = audio.loadSound( "music/musi3.wav" )
+    musi3 = audio.loadSound( "music/musi3.mp3" )
     click = audio.loadSound("music/click.wav")
     audio.play( musi3, { channel=1, loops=-1 })
     audio.setVolume(0.6, {channel=1})
@@ -68,10 +68,7 @@ physics.setDrawMode("hybrid")
 	
 
 	-------------------------------------------------------------
-
-			
-		
-		----------------------------------------------------------------------
+    ----------------------------------------------------------------------
 
 		
 	--add a plataforma3

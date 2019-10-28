@@ -17,7 +17,7 @@ local uiGroup = display.newGroup()
 local physics = require( "physics" )
 physics.start()
 physics.setGravity(0, 0)
-physics.setDrawMode("hybrid")
+--physics.setDrawMode("hybrid")
     
     
 
@@ -36,7 +36,9 @@ end
 
 	local function CenaVMenu()
 		audio.stop( 1 )
-        composer.removeScene( "cena.fase2" )
+		composer.removeScene( "cena.fase2" )
+		audio.play(click, { channel=2 })
+        audio.setVolume( 2.0, { channel=2 } )
 		composer.gotoScene("cena.menu" , {effect= "crossFade", time= 500})
 		menus = audio.loadSound( "music/menus.mp3" )
 		audio.play( menus, { channel=1, loops=-1 })
@@ -54,7 +56,7 @@ end
 	audio.reserveChannels( 1 )
     audio.reserveChannels( 2 )
 
-    musi2 = audio.loadSound( "music/musi2.wav" )
+    musi2 = audio.loadSound( "music/musi2.mp3" )
     click = audio.loadSound("music/click.wav")
     audio.play( musi2, { channel=1, loops=-1 })
     audio.setVolume(0.6, {channel=1})
@@ -69,7 +71,7 @@ end
 	
 
 	-------------------------------------------------------------
-	local forma = display.newImageRect(backGroup,"formas/forma.png",89,11)
+	local forma = display.newImageRect(backGroup,"formas/forma.png",67,11)
 		forma.x = 280
 		forma.y = 155
 

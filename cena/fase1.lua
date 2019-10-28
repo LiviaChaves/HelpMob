@@ -16,7 +16,7 @@ local h = display.contentHeight
 local physics = require( "physics" )
 physics.start()
 physics.setGravity(0, 0)
-physics.setDrawMode("hybrid")
+--physics.setDrawMode("hybrid")
 
 
 
@@ -28,7 +28,9 @@ physics.setDrawMode("hybrid")
 
 	local function CenaVMenu()
 		audio.stop( 1 )
-        composer.removeScene ("cena.fase1") 
+		composer.removeScene ("cena.fase1") 
+		audio.play(click, { channel=2 })
+        audio.setVolume( 2.0, { channel=2 } )
 		composer.gotoScene("cena.menu" , {effect= "crossFade", time= 500})
 		menus = audio.loadSound( "music/menus.mp3" )
 		audio.play( menus, { channel=1, loops=-1 })
@@ -38,8 +40,7 @@ physics.setDrawMode("hybrid")
 		
 		audio.stop( 1 )
 		composer.removeScene( "cena.fase1" )
-		audio.play(click, { channel=2 })
-        audio.setVolume( 2.0, { channel=2 } )
+		
 	    composer.gotoScene("cena.fase2" , {effect= "crossFade", time= 500})
   
 	  end
