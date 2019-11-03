@@ -186,10 +186,10 @@ physics.setGravity(0, 0)
 		vmenu:addEventListener("tap", CenaVMenu)
 
    --add o cristal verde
-		local teste= display.newImage(mainGroup,"Imagens/teste.png")
-		teste.x=display.contentCenterX
-		teste.y=display.contentCenterY-230
-		teste:addEventListener("tap", Cenafase2)
+		local cristalV= display.newImageRect(mainGroup,"Imagens/cristalV.png",28,26)
+		cristalV.x=display.contentCenterX
+		cristalV.y=display.contentCenterY-235
+		cristalV:addEventListener("tap", Cenafase2)
 
 	
 
@@ -317,7 +317,7 @@ physics.setGravity(0, 0)
 		-----------------------------------------
 	
 
-		physics.addBody(teste,"static")
+		physics.addBody(cristalV,"static")
 		
 		physics.addBody( mob, "dynamic" )
 		mob.isFixedRotation = true

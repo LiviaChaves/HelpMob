@@ -41,9 +41,9 @@ function scene:create( event )
     logo.x = display.contentCenterX
     logo.y = display.contentCenterY-8
     
-    button = display.newImage(uiGroup, "Imagens/button.png")
+    button = display.newImageRect(uiGroup, "Imagens/button.png",242,174)
     button.x = display.contentCenterX
-    button.y = display.contentCenterY+80
+    button.y = 400
     button:addEventListener("tap", Cenagame)
     
 

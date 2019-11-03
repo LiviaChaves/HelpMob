@@ -28,9 +28,9 @@ physics.setGravity(0, 0)
 	-- the scene is removed entirely (not recycled) via "composer.removeScene()"
 	-- -----------------------------------------------------------------------------------
 	local function Cenafase3()
-	audio.stop( 1 )
-    composer.removeScene( "cena.fase2" )
-    composer.gotoScene("cena.fase3" , {effect= "crossFade", time= 500})
+		audio.stop( 1 )
+		composer.removeScene( "cena.fase2" )
+		composer.gotoScene("cena.fase3" , {effect= "crossFade", time= 500})
 
 end
 
@@ -53,13 +53,13 @@ end
 	
 		local sceneGroup = self.view
 		
-	audio.reserveChannels( 1 )
-    audio.reserveChannels( 2 )
+		audio.reserveChannels( 1 )
+		audio.reserveChannels( 2 )
 
-    musi2 = audio.loadSound( "music/musi2.mp3" )
-    click = audio.loadSound("music/click.wav")
-    audio.play( musi2, { channel=1, loops=-1 })
-    audio.setVolume(0.6, {channel=1})
+		musi2 = audio.loadSound( "music/musi2.mp3" )
+		click = audio.loadSound("music/click.wav")
+		audio.play( musi2, { channel=1, loops=-1 })
+		audio.setVolume(0.6, {channel=1})
 
 
 
@@ -71,7 +71,7 @@ end
 	
 
 	-------------------------------------------------------------
-	local forma = display.newImageRect(backGroup,"formas/forma.png",67,11)
+	    local forma = display.newImageRect(backGroup,"formas/forma.png",67,11)
 		forma.x = 280
 		forma.y = 155
 
@@ -324,7 +324,7 @@ end
 		vmenu:addEventListener("tap", CenaVMenu)
 
    --add o cristal branco
-		local cristalB= display.newImage(mainGroup,"Imagens/cristalB.png")
+		local cristalB= display.newImageRect(mainGroup,"Imagens/cristalB.png",28,26)
 		cristalB.x=300
 		cristalB.y=display.contentCenterY-230
 		cristalB:addEventListener("tap", Cenafase3)
@@ -490,7 +490,7 @@ end
 	
 
 	--	physics.addBody(teste,"static")
-		
+	    physics.addBody( cristalB, "static")
 		physics.addBody( mob, "dynamic" )
 		mob.isFixedRotation = true
 
