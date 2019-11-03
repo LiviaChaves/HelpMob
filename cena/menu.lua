@@ -38,8 +38,13 @@ function scene:create( event )
     background.y = display.contentCenterY
    
     logo = display.newImage(mainGroup, "Imagens/logo.png")
-    logo.x = display.contentCenterX
-    logo.y = display.contentCenterY-8
+    logo.x = 165
+    logo.y = 140
+
+    local mobM = display.newImage(mainGroup,"Imagens/mobM.png")
+	mobM.x= 150
+	mobM.y= 314
+
     
     button = display.newImageRect(uiGroup, "Imagens/button.png",242,174)
     button.x = display.contentCenterX

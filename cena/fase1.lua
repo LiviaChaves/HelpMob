@@ -1,21 +1,21 @@
 
-display.setStatusBar (display.HiddenStatusBar)	
+	display.setStatusBar (display.HiddenStatusBar)	
 
-local composer = require( "composer" )
+	local composer = require( "composer" )
 
-local scene = composer.newScene()
+	local scene = composer.newScene()
 
-local backGroup  = display.newGroup()
-local mainGroup  = display.newGroup()
-local uiGroup = display.newGroup()
+	local backGroup  = display.newGroup()
+	local mainGroup  = display.newGroup()
+	local uiGroup = display.newGroup()
 
 
-local w = display.contentWidth
-local h = display.contentHeight
+	local w = display.contentWidth
+	local h = display.contentHeight
 
-local physics = require( "physics" )
-physics.start()
-physics.setGravity(0, 0)
+	local physics = require( "physics" )
+	physics.start()
+	physics.setGravity(0, 0)
 --physics.setDrawMode("hybrid")
 
 
