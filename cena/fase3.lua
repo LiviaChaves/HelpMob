@@ -16,7 +16,7 @@
 	local physics = require( "physics" )
 	physics.start()
 	physics.setGravity(0, 0)
---	physics.setDrawMode("hybrid")
+	--physics.setDrawMode("hybrid")
 
 
 
@@ -135,8 +135,8 @@
 		forma16.x = 254
 		forma16.y = 200
 
-		local forma17= display.newImageRect(backGroup,"formas/forma.png",10,39)
-		forma17.x = 299
+		local forma17= display.newImageRect(backGroup,"formas/forma.png",7,39)
+		forma17.x = 295
 		forma17.y = 242
 
 		local forma18= display.newImageRect(backGroup,"formas/forma.png",10,70)
