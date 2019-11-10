@@ -36,11 +36,11 @@
 		audio.play( menus, { channel=1, loops=-1 })
 	end
 
-	local function CenaFase4()
+	local function CenaFinal()
 		
 		audio.stop( 1 )
 		composer.removeScene( "cena.fase3" )
-	    composer.gotoScene("cena.fase4" , {effect= "crossFade", time= 500})
+	    composer.gotoScene("cena.cenafinal" , {effect= "crossFade", time= 500})
   
 	  end
 	
@@ -260,7 +260,7 @@
 		local cristalA= display.newImageRect(mainGroup,"Imagens/cristalA.png",24,23)
 		cristalA.x=display.contentCenterX-10
 		cristalA.y=165
-		cristalA:addEventListener("tap", CenaFase4)
+		cristalA:addEventListener("tap", CenaFinal)
 
 
 

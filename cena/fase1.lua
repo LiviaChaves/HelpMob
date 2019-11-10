@@ -1,5 +1,4 @@
-
-	display.setStatusBar (display.HiddenStatusBar)	
+display.setStatusBar (display.HiddenStatusBar)	
 
 	local composer = require( "composer" )
 
@@ -37,6 +36,7 @@
 		
 		audio.stop( 1 )
 		composer.removeScene( "cena.fase1" )
+		Runtime:removeEventListener('collision', onCollision) 
 		composer.gotoScene("cena.fase2" , {effect= "crossFade", time= 500})
   
 	  end
@@ -190,12 +190,14 @@ function scene:create( event )
 			
 			  if event.phase=="began" then
 				if obj1.myName == "mob" and  obj2.myName =="cristalV" then 
+					timer.performWithDelay( 1000, Cenafase2)
 			             
 				end 
 			
 			  end 
 	
 			  Runtime:addEventListener("collision",onCollision)
+
 			end 
 
 	
@@ -373,7 +375,8 @@ function scene:create( event )
 	function scene:destroy( event )
 	
 		local sceneGroup = self.view
-		-- Code here runs prior to the removal of scene's view
+	
+	 
 		physics.pause()
 	
 	end
