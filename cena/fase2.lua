@@ -14,14 +14,8 @@ local mainGroup  = display.newGroup()
 local uiGroup = display.newGroup()
 
 
-local physics = require( "physics" )
-physics.start()
-physics.setGravity(0, 0)
 --physics.setDrawMode("hybrid")
     
-    
-
-
 
 		-- -----------------------------------------------------------------------------------
 	-- Code outside of the scene event functions below will only be executed ONCE unless
@@ -52,6 +46,10 @@ end
 	function scene:create( event )
 	
 		local sceneGroup = self.view
+
+		local physics = require( "physics" )
+		physics.start()
+		physics.setGravity(0, 0) 
 		
 		audio.reserveChannels( 1 )
 		audio.reserveChannels( 2 )
@@ -307,10 +305,10 @@ end
 		----------------------------------------------------------------------
 
 		
-	--add a plataforma1
-	  local plataforma2 = display.newImage(backGroup,"Imagens/plataforma2.png")
-		plataforma2.x = display.contentCenterX
-		plataforma2.y = display.contentCenterY
+	--add o labirinto
+	  local lab2 = display.newImage(backGroup,"Imagens/lab2.png")
+	  lab2.x = display.contentCenterX
+	  lab2.y = display.contentCenterY
 
 	-- add o mob
 		local mob = display.newImage(mainGroup,"Imagens/mob.png")
@@ -539,7 +537,7 @@ end
 	
 		local sceneGroup = self.view
 		-- Code here runs prior to the removal of scene's view
-		physics.stop()
+		physics.pause()
 	
 	end
 	

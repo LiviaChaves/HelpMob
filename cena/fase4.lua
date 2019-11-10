@@ -13,7 +13,10 @@
 	local w = display.contentWidth
 	local h = display.contentHeight
 
-
+	local physics = require( "physics" )
+	physics.start()
+	physics.setGravity(0, 0)
+--physics.setDrawMode("hybrid")
 
 
 
@@ -37,7 +40,8 @@
 		
 		audio.stop( 1 )
 		composer.removeScene( "cena.fase1" )
-		composer.gotoScene("cena.fase2" , {effect= "crossFade", time= 500})
+		
+	    composer.gotoScene("cena.fase2" , {effect= "crossFade", time= 500})
   
 	  end
 	
@@ -46,131 +50,22 @@
 	-- -----------------------------------------------------------------------------------
 
 	-- create()
-function scene:create( event )
+	function scene:create( event )
 	
-    local sceneGroup = self.view
+	   local sceneGroup = self.view
 
-		local physics = require( "physics" )
-		physics.start()
-		physics.setGravity(0, 0)   
-		--physics.setDrawMode("hybrid")
-
-		audio.reserveChannels( 1 )
-		audio.reserveChannels( 2 )
-
-		musi1 = audio.loadSound( "music/musi1.wav" )
-		click = audio.loadSound("music/click.wav")
-		
-		audio.play( musi1, { channel=1, loops=-1 })
-		audio.setVolume(0.6, {channel=1})
-
-
-		
-		---add o fundo da fase1
-		local fundo1 = display.newImageRect(backGroup,"Imagens/fundo1.png",540,960)
-		fundo1.x = display.contentCenterX
-		fundo1.y = display.contentCenterY
-		
-
-		-------------------------------------------------------------
-		local retangulo = display.newRect( backGroup,35, 35, 35,35  ) 
-		retangulo.x = 310
-		retangulo.y = 220
-		
-		local forma = display.newImageRect(backGroup,"formas/forma.png",180,15)
-		forma.x = 250
-		forma.y = 190
-		
-		local forma2 = display.newImageRect(backGroup,"formas/forma.png",20,157)
-		forma2.x = 97
-		forma2.y = 65
-		
-		local forma3 = display.newImageRect(backGroup,"formas/forma.png",292,15)
-		forma3.x = 300
-		forma3.y = 81
-		
-		local forma4 = display.newImageRect(backGroup,"formas/forma.png",65,15)
-		forma4.x = 15
-		forma4.y = 27
-		
-		local forma5 = display.newImageRect(backGroup,"formas/forma.png",505,16)
-		forma5.x = 15
-		forma5.y = 297
-		
-		local forma6 = display.newImageRect(backGroup,"formas/forma.png",110,15)
-		forma6.x = 80
-		forma6.y = 345
-		
-			
-		local forma7 = display.newImageRect(backGroup,"formas/forma.png",280,15)
-		forma7.x = 220
-		forma7.y = 395
-
-		local forma8 = display.newImageRect(backGroup,"formas/forma.png",260,15)
-		forma8.x = 163
-		forma8.y = 445
-		
-		local forma9 = display.newImageRect(backGroup,"formas/forma.png",18,32)
-		forma9.x = 40
-		forma9.y = 422
-		
-		local forma10 = display.newImageRect(backGroup,"formas/forma.png",47,15)
-		forma10.x = 25
-		forma10.y = 400
-		
-		local forma11= display.newImageRect(backGroup,"formas/forma.png",25,35)
-		forma11.x = 92
-		forma11.y = 370
-		
-		local forma12= display.newImageRect(backGroup,"formas/forma.png",175,15)
-		forma12.x = 50
-		forma12.y = 190
-		
-		local forma13= display.newImageRect(backGroup,"formas/forma.png",60,15)
-		forma13.x = 60
-		forma13.y = 78
-		
-		local forma14= display.newImageRect(backGroup,"formas/forma.png",123,15)
-		forma14.x = 160
-		forma14.y = 30
-		
-		local forma15= display.newImageRect(backGroup,"formas/forma.png",50,15)
-		forma15.x = 25
-		forma15.y = 135
-		
-		local forma16= display.newImageRect(backGroup,"formas/forma.png",82,15)
-		forma16.x = 150
-		forma16.y = 135
-		
-		local forma17= display.newImageRect(backGroup,"formas/forma.png",115,15)
-		forma17.x = 300
-		forma17.y = 135
-		
-		
-		local forma18= display.newImageRect(backGroup,"formas/forma.png",350,15)
-		forma18.x = 200
-		forma18.y = 243
-		
-		local forma19= display.newImageRect(backGroup,"formas/forma.png",125,15)
-		forma19.x = 232
-		forma19.y = 341
-		
-		local forma20= display.newImageRect(backGroup,"formas/forma.png",25,30)
-		forma20.x = 255
-		forma20.y = 320
-
-		local forma21= display.newImageRect(backGroup,"formas/forma.png",60,15)
-		forma21.x = 300
-		forma21.y = 30
-			
+	
 		
 		----------------------------------------------------------------------
 
 		
-	--add o labirinto
-		local lab1 = display.newImage(backGroup,"Imagens/lab1.png")
-		lab1.x = display.contentCenterX
-		lab1.y = display.contentCenterY
+
+		local lab4 = display.newImage(backGroup,"Imagens/lab4.png")
+		lab4.x = display.contentCenterX
+		lab4.y = display.contentCenterY
+
+	
+		
 
 	-- add o mob
 		local mob = display.newImage(mainGroup,"Imagens/mob.png")
@@ -178,36 +73,18 @@ function scene:create( event )
 		mob.y= 500
 		mob.name = "mob"
 
-	    local vmenu = display.newImageRect(mainGroup,"Imagens/vmenu.png",40,40)
-		vmenu.x=20
-		vmenu.y=-25
-		vmenu:addEventListener("tap", CenaVMenu)
 
-		local function onCollision(  self, event )
-		
-			local obj1 = event.target
-			local obj2 = event.other
-			
-			  if event.phase=="began" then
-				if obj1.myName == "mob" and  obj2.myName =="cristalV" then 
-			             
-				end 
-			
-			  end 
-	
-			  Runtime:addEventListener("collision",onCollision)
-			end 
 
 	
-	
-		--add o cristal verde
-		local cristalV= display.newImageRect(mainGroup,"Imagens/cristalV.png",28,26)
-		--cristalV.x=display.contentCenterX
-		--cristalV.y=display.contentCenterY-235
-		cristalV.x=200
-		cristalV.y=470
-		cristalV:addEventListener("collision", Cenafase2)
 
+	--criar Collision entre mob e o cristal
+	local function onCollision( event )
+		if ( event.phase == "began" ) then -- - indica que uma colisão entre dois corpos iniciou o contato inicial.
+			print( "began: " .. event.object1 .. " & " .. event.object2 )
+		elseif ( event.phase == "ended" ) then-- - indica que uma colisão entre dois corpos foi concluída.
+			print( "ended: " .. event.object1 .. " & " .. event.object2 )
+		end
+	end
 	
 	--criação dos botões de movimentação
 
@@ -297,34 +174,6 @@ function scene:create( event )
 
 		Runtime:addEventListener("enterFrame", update)-- dispara a função update
 
-		----------------------------------------
-		--add a fisica 
-		physics.addBody( forma, "static")
-		physics.addBody( forma2, "static")
-		physics.addBody( forma3, "static")
-		physics.addBody( forma4, "static")
-		physics.addBody( forma5, "static")
-		physics.addBody( forma6, "static")
-		physics.addBody( forma7, "static")
-		physics.addBody( forma8, "static")
-		physics.addBody( forma9, "static")
-		physics.addBody( forma10, "static")
-		physics.addBody( forma11, "static")
-		physics.addBody( forma12, "static")
-		physics.addBody( forma13, "static")
-		physics.addBody( forma14, "static")
-		physics.addBody( forma15, "static")
-		physics.addBody( forma16, "static")
-		physics.addBody( forma17, "static")
-		physics.addBody( forma18, "static")
-		physics.addBody( forma19, "static")
-		physics.addBody( forma20, "static")
-		physics.addBody( forma21, "static")
-		physics.addBody( retangulo, "static")
-		-----------------------------------------
-	
-
-		physics.addBody(cristalV,"static")
 		
 		physics.addBody( mob, "dynamic" )
 		mob.isFixedRotation = true
@@ -374,7 +223,7 @@ function scene:create( event )
 	
 		local sceneGroup = self.view
 		-- Code here runs prior to the removal of scene's view
-		physics.pause()
+		physics.stop()
 	
 	end
 	
