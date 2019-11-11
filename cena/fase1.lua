@@ -26,17 +26,15 @@ display.setStatusBar (display.HiddenStatusBar)
 		audio.stop( 1 )
 		composer.removeScene ("cena.fase1") 
 		audio.play(click, { channel=2 })
-        audio.setVolume( 2.0, { channel=2 } )
+    audio.setVolume( 2.0, { channel=2 } )
 		composer.gotoScene("cena.menu" , {effect= "crossFade", time= 500})
 		menus = audio.loadSound( "music/menus.mp3" )
 		audio.play( menus, { channel=1, loops=-1 })
 	end
 
 	local function Cenafase2()
-		
-		audio.stop( 1 )
-		composer.removeScene( "cena.fase1" )
-		Runtime:removeEventListener('collision', onCollision) 
+	
+	
 		composer.gotoScene("cena.fase2" , {effect= "crossFade", time= 500})
   
 	  end
@@ -176,39 +174,46 @@ function scene:create( event )
 		local mob = display.newImage(mainGroup,"Imagens/mob.png")
 		mob.x= 700
 		mob.y= 500
-		mob.name = "mob"
+		mob.id = "mob"
 
 	    local vmenu = display.newImageRect(mainGroup,"Imagens/vmenu.png",40,40)
 		vmenu.x=20
 		vmenu.y=-25
 		vmenu:addEventListener("tap", CenaVMenu)
 
-		local function onCollision(  self, event )
-		
-			local obj1 = event.target
-			local obj2 = event.other
-			
-			  if event.phase=="began" then
-				if obj1.myName == "mob" and  obj2.myName =="cristalV" then 
-					timer.performWithDelay( 1000, Cenafase2)
-			             
-				end 
-			
-			  end 
-	
-			  Runtime:addEventListener("collision",onCollision)
-
-			end 
-
-	
-	
 		--add o cristal verde
 		local cristalV= display.newImageRect(mainGroup,"Imagens/cristalV.png",28,26)
 		--cristalV.x=display.contentCenterX
 		--cristalV.y=display.contentCenterY-235
 		cristalV.x=200
 		cristalV.y=470
-		cristalV:addEventListener("collision", Cenafase2)
+		cristalV.id="cristalV"
+
+		function  goNextLevel()
+
+			composer.gotoScene("cena.fase2", "fade", 500 )
+					
+		
+		
+		end
+
+		function onCollision(event) 
+	
+
+			local object1 = event.object1
+		
+			local object2 = event.object2
+			 
+			if ( object1.id == "cristalV" and object2.id == "mob"
+			   or object1.id == "mob" and object2.id == "cristalV" ) then
+		     	timer.performWithDelay(	1000, goNextLevel)
+				end 	
+			 
+		end
+
+		Runtime:addEventListener("collision", onCollision)
+		
+		
 
 	
 	--criação dos botões de movimentação
@@ -346,8 +351,9 @@ function scene:create( event )
 		local phase = event.phase
 	
 		if ( phase == "will" ) then
-			-- Code here runs when the scene is still off screen (but is about to come on screen)
-	
+
+			
+		  
 		elseif ( phase == "did" ) then
 			-- Code here runs when the scene is entirely on screen
 	
@@ -362,11 +368,13 @@ function scene:create( event )
 		local phase = event.phase
 	
 		if ( phase == "will" ) then
-			-- Code here runs when the scene is on screen (but is about to go off screen)
-	
+			  composer.removeScene( "cena.fase1" )	
+				Runtime:removeEventListener("collision",onCollision)
+		  
+	 
 		elseif ( phase == "did" ) then
 			-- Code here runs immediately after the scene goes entirely off screen
-	
+			
 		end
 	end
 	
@@ -375,9 +383,9 @@ function scene:create( event )
 	function scene:destroy( event )
 	
 		local sceneGroup = self.view
+		physics.stop()
 	
 	 
-		physics.pause()
 	
 	end
 	
