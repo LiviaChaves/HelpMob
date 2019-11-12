@@ -26,19 +26,12 @@ display.setStatusBar (display.HiddenStatusBar)
 		audio.stop( 1 )
 		composer.removeScene ("cena.fase1") 
 		audio.play(click, { channel=2 })
-    audio.setVolume( 2.0, { channel=2 } )
+        audio.setVolume( 2.0, { channel=2 } )
 		composer.gotoScene("cena.menu" , {effect= "crossFade", time= 500})
 		menus = audio.loadSound( "music/menus.mp3" )
 		audio.play( menus, { channel=1, loops=-1 })
 	end
 
-	local function Cenafase2()
-	
-	
-		composer.gotoScene("cena.fase2" , {effect= "crossFade", time= 500})
-  
-	  end
-	
 	-- -----------------------------------------------------------------------------------
 	-- Scene event functions
 	-- -----------------------------------------------------------------------------------
@@ -170,50 +163,61 @@ function scene:create( event )
 		lab1.x = display.contentCenterX
 		lab1.y = display.contentCenterY
 
+		
+
 	-- add o mob
 		local mob = display.newImage(mainGroup,"Imagens/mob.png")
 		mob.x= 700
 		mob.y= 500
-		mob.id = "mob"
+		mob.myName = "mob"
+		mob.id="mob"
 
 	    local vmenu = display.newImageRect(mainGroup,"Imagens/vmenu.png",40,40)
 		vmenu.x=20
 		vmenu.y=-25
 		vmenu:addEventListener("tap", CenaVMenu)
 
-		--add o cristal verde
-		local cristalV= display.newImageRect(mainGroup,"Imagens/cristalV.png",28,26)
-		--cristalV.x=display.contentCenterX
-		--cristalV.y=display.contentCenterY-235
-		cristalV.x=200
-		cristalV.y=470
+	--add o cristal verde
+		local cristalV=display.newImageRect(mainGroup,"Imagens/cristalV.png",28,26)
+		cristalV.x=display.contentCenterX
+		cristalV.y=display.contentCenterY-235
 		cristalV.id="cristalV"
-
-		function  goNextLevel()
-
-			composer.gotoScene("cena.fase2", "fade", 500 )
-					
-		
-		
+	
+		function  CenaFase2()
+             composer.gotoScene("cena.fase2", "fade", 500 )
 		end
 
 		function onCollision(event) 
-	
-
-			local object1 = event.object1
-		
-			local object2 = event.object2
-			 
-			if ( object1.id == "cristalV" and object2.id == "mob"
+	         local object1 = event.object1
+	         local object2 = event.object2
+		  if ( object1.id == "cristalV" and object2.id == "mob"
 			   or object1.id == "mob" and object2.id == "cristalV" ) then
-		     	timer.performWithDelay(	1000, goNextLevel)
+		     	timer.performWithDelay(	1000, CenaFase2)
 				end 	
 			 
 		end
 
 		Runtime:addEventListener("collision", onCollision)
+
+		-------add inimigo--------------------------------------------------
+		local ini1 = display.newImageRect(mainGroup,"Imagens/im1.png",21,25)
+		ini1.x=123
+		ini1.y=320
+
+		local ini2 = display.newImageRect(mainGroup,"Imagens/im1.png",21,25)
+		ini2.x=30
+		ini2.y=50
+
+		local ini3 = display.newImageRect(mainGroup,"Imagens/im1.png",21,25)
+		ini3.x=200
+		ini3.y=60
+
+		local ini4 = display.newImageRect(mainGroup,"Imagens/im1.png",21,25)
+		ini4.x=200
+		ini4.y=220
+		-------------------------------------------------------------------
 		
-		
+	
 
 	
 	--criação dos botões de movimentação
@@ -334,6 +338,11 @@ function scene:create( event )
 		physics.addBody(cristalV,"static")
 		
 		physics.addBody( mob, "dynamic" )
+		physics.addBody( ini1, "dynamic" )
+		physics.addBody( ini2, "dynamic" )
+		physics.addBody( ini3, "dynamic" )
+		physics.addBody( ini4, "dynamic" )
+		
 		mob.isFixedRotation = true
 
 		
@@ -351,9 +360,8 @@ function scene:create( event )
 		local phase = event.phase
 	
 		if ( phase == "will" ) then
-
-			
-		  
+			-- Code here runs when the scene is still off screen (but is about to come on screen)
+	
 		elseif ( phase == "did" ) then
 			-- Code here runs when the scene is entirely on screen
 	
@@ -368,13 +376,13 @@ function scene:create( event )
 		local phase = event.phase
 	
 		if ( phase == "will" ) then
-			  composer.removeScene( "cena.fase1" )	
-				Runtime:removeEventListener("collision",onCollision)
-		  
-	 
+			audio.stop( 1 )
+			composer.removeScene( "cena.fase1" )	
+			Runtime:removeEventListener("collision",onCollision)
+	
 		elseif ( phase == "did" ) then
 			-- Code here runs immediately after the scene goes entirely off screen
-			
+	
 		end
 	end
 	
@@ -383,9 +391,9 @@ function scene:create( event )
 	function scene:destroy( event )
 	
 		local sceneGroup = self.view
-		physics.stop()
 	
 	 
+		physics.stop()
 	
 	end
 	

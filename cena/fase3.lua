@@ -36,13 +36,6 @@
 		audio.play( menus, { channel=1, loops=-1 })
 	end
 
-	local function CenaFinal()
-		
-		audio.stop( 1 )
-		composer.removeScene( "cena.fase3" )
-	    composer.gotoScene("cena.cenafinal" , {effect= "crossFade", time= 500})
-  
-	  end
 	
 	-- -----------------------------------------------------------------------------------
 	-- Scene event functions
@@ -242,29 +235,46 @@
     ----------------------------------------------------------------------
 
 		
-	--add o labirinto
+	--add o labirinto---------------------------------------------------
 	    local lab3 = display.newImage(backGroup,"Imagens/lab3.png")
 		lab3.x = display.contentCenterX
 		lab3.y = display.contentCenterY
-	-- add o mob
+	-- add o mob-------------------------------------------------
 		local mob = display.newImage(mainGroup,"Imagens/mob.png")
 		mob.x= 700
 		mob.y= 500
-		mob.name = "mob"
--- add o cristal
+		mob.myName = "mob"
+		mob.id="mob"
+
+------------------botão voltar menu--------------------------------------------
 	    local vmenu = display.newImageRect(mainGroup,"Imagens/vmenu.png",40,40)
 		vmenu.x=20
 		vmenu.y=-25
 		vmenu:addEventListener("tap", CenaVMenu)
-
+-- add o cristal-----------------------------------------------------------------------
 		local cristalA= display.newImageRect(mainGroup,"Imagens/cristalA.png",24,23)
 		cristalA.x=display.contentCenterX-10
 		cristalA.y=165
-		cristalA:addEventListener("tap", CenaFinal)
+		cristalA.id="cristalA"
 
+		-----------------Collision ente mob e cristalA---------------------------------
+		function  goNextLevel()
+           composer.gotoScene("cena.cenafinal", "fade", 500 )
+		end
 
+		function onCollision(event) 
+	       local object1 = event.object1
+		   local object2 = event.object2
+			if ( object1.id == "cristalA" and object2.id == "mob"
+			   or object1.id == "mob" and object2.id == "cristalA" ) then
+		     	timer.performWithDelay(	1000, goNextLevel)
+		   end 	
+			 
+		end
 
-	
+		Runtime:addEventListener("collision", onCollision)
+		
+------------------------------------------------------------------------------------
 
 	--criar Collision entre mob e o cristal
 	
@@ -403,6 +413,7 @@
 
 		-----------------------------------------
 	
+		physics.addBody( cristalA, "static")
 		physics.addBody( mob, "dynamic" )
 		mob.isFixedRotation = true
 
@@ -438,7 +449,9 @@
 		local phase = event.phase
 	
 		if ( phase == "will" ) then
-			-- Code here runs when the scene is on screen (but is about to go off screen)
+			audio.stop( 1 )
+			composer.removeScene( "cena.fase3" )
+			Runtime:removeEventListener("collision",onCollision)
 	
 		elseif ( phase == "did" ) then
 			-- Code here runs immediately after the scene goes entirely off screen

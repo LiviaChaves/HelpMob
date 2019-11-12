@@ -4,6 +4,12 @@ display.setStatusBar (display.HiddenStatusBar)
 local composer = require( "composer" )
 
 local scene = composer.newScene()
+local physics = require( "physics" )
+physics.start()
+physics.setGravity(0, 0) 
+
+--physics.setDrawMode("hybrid")
+    
 
 
 local w = display.contentWidth
@@ -14,19 +20,12 @@ local mainGroup  = display.newGroup()
 local uiGroup = display.newGroup()
 
 
---physics.setDrawMode("hybrid")
-    
 
 		-- -----------------------------------------------------------------------------------
 	-- Code outside of the scene event functions below will only be executed ONCE unless
 	-- the scene is removed entirely (not recycled) via "composer.removeScene()"
 	-- -----------------------------------------------------------------------------------
-	local function Cenafase3()
-		audio.stop( 1 )
-		composer.removeScene( "cena.fase2" )
-		composer.gotoScene("cena.fase3" , {effect= "crossFade", time= 500})
 
-end
 
 	local function CenaVMenu()
 		audio.stop( 1 )
@@ -47,10 +46,7 @@ end
 	
 		local sceneGroup = self.view
 
-		local physics = require( "physics" )
-		physics.start()
-		physics.setGravity(0, 0) 
-		
+	
 		audio.reserveChannels( 1 )
 		audio.reserveChannels( 2 )
 
@@ -303,41 +299,48 @@ end
 			
 		
 		----------------------------------------------------------------------
-
 		
 	--add o labirinto
-	  local lab2 = display.newImage(backGroup,"Imagens/lab2.png")
-	  lab2.x = display.contentCenterX
-	  lab2.y = display.contentCenterY
+	   local lab2 = display.newImage(backGroup,"Imagens/lab2.png")
+	   lab2.x = display.contentCenterX
+	   lab2.y = display.contentCenterY
 
-	-- add o mob
+	-- add o mob-------------------------------------------------------------------------------
 		local mob = display.newImage(mainGroup,"Imagens/mob.png")
 		mob.x= 700
 		mob.y= 500
-		mob.name = "mob"
-
+		mob.myName = "mob"
+		mob.id="mob"
+---------botão voltar menu-------------------------------------------------------------------------------
 	    local vmenu = display.newImageRect(mainGroup,"Imagens/vmenu.png",40,40)
 		vmenu.x=20
 		vmenu.y=-25
 		vmenu:addEventListener("tap", CenaVMenu)
 
-   --add o cristal branco
+   --add o cristal branco----------------------------------------------------------
 		local cristalB= display.newImageRect(mainGroup,"Imagens/cristalB.png",28,26)
 		cristalB.x=300
 		cristalB.y=display.contentCenterY-230
-		cristalB:addEventListener("tap", Cenafase3)
+	    cristalB.id="cristalB"
 
-	
+	---------------------Collision	entre mob e cristal -------------------------------------------------	
+		function  CenaFase3()
+            composer.gotoScene("cena.fase3", "fade", 500 )
+    	end
 
-	--criar Collision entre mob e o cristal
-	local function onCollision( event )
-		if ( event.phase == "began" ) then -- - indica que uma colisão entre dois corpos iniciou o contato inicial.
-			print( "began: " .. event.object1 .. " & " .. event.object2 )
-		elseif ( event.phase == "ended" ) then-- - indica que uma colisão entre dois corpos foi concluída.
-			print( "ended: " .. event.object1 .. " & " .. event.object2 )
+		function onCollision(event) 
+	        local object1 = event.object1
+		    local object2 = event.object2
+			 
+			if ( object1.id == "cristalB" and object2.id == "mob"
+			   or object1.id == "mob" and object2.id == "cristalB" ) then
+		     	timer.performWithDelay(	1000, CenaFase3)
+				end 	
 		end
-	end
-	
+
+		Runtime:addEventListener("collision", onCollision)
+
+	----------------------------------------------------------------------------------------------------------
 	--criação dos botões de movimentação
 
 		--- cria um vetor
@@ -523,7 +526,9 @@ end
 		local phase = event.phase
 	
 		if ( phase == "will" ) then
-			-- Code here runs when the scene is on screen (but is about to go off screen)
+			audio.stop( 1 )
+			composer.removeScene( "cena.fase2" )
+			Runtime:removeEventListener("collision",onCollision)
 	
 		elseif ( phase == "did" ) then
 			-- Code here runs immediately after the scene goes entirely off screen
