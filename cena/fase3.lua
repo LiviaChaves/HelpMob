@@ -274,9 +274,46 @@
 
 		Runtime:addEventListener("collision", onCollision)
 		
-------------------------------------------------------------------------------------
+	-----Inimigos-----------------------------------------------------------------------------------------------------
+	local ini1 =display.newImageRect("Imagens/im3.png",45,45)
+	ini1.x=93
+	ini1.y=50
+	ini1.id="ini1"
 
-	--criar Collision entre mob e o cristal
+	local ini2 =display.newImageRect("Imagens/im3.png",45,45)
+	ini2.x=190
+	ini2.y=20
+	ini2.id="ini2"
+
+	local ini3 =display.newImageRect("Imagens/im3.png",45,45)
+	ini3.x=200
+	ini3.y=400
+	ini3.id="ini3"
+
+	local ini4 =display.newImageRect("Imagens/im3.png",45,45)
+	ini4.x=300
+	ini4.y=120
+	ini4.id="ini4"
+
+	local ini5 =display.newImageRect("Imagens/im3.png",45,45)
+	ini5.x=80
+	ini5.y=300
+	ini5.id="ini5"
+
+	local ini6=display.newImageRect("Imagens/im3.png",45,45)
+	ini6.x=275
+	ini6.y=210
+	ini6.id="ini6"
+
+	
+	local ini7=display.newImageRect("Imagens/im3.png",45,45)
+	ini7.x=30
+	ini7.y=420
+	ini7.id="ini7"
+	-----------------------------------------------------------------------------------------------------
+
+
+
 	
 	--criação dos botões de movimentação
 
@@ -414,6 +451,14 @@
 		-----------------------------------------
 	
 		physics.addBody( cristalA, "static")
+		physics.addBody( ini1, "dynamic" )
+		physics.addBody( ini2, "dynamic" )
+		physics.addBody( ini3, "dynamic" )
+		physics.addBody( ini4, "dynamic" )
+		physics.addBody( ini5, "dynamic" )
+		physics.addBody( ini6, "dynamic" )
+		physics.addBody( ini7, "dynamic" )
+		
 		physics.addBody( mob, "dynamic" )
 		mob.isFixedRotation = true
 

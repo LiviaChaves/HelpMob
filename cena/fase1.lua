@@ -236,6 +236,7 @@ function scene:create( event )
 		function  GameOver()
 			composer.gotoScene("cena.gameover", "fade", 500 )
 	   end
+
 		function CollisionIni1(event) 
 			local object1 = event.object1
 			local object2 = event.object2
@@ -243,7 +244,7 @@ function scene:create( event )
 			  or object1.id == "mob" and object2.id == "ini1" ) then
 				
                 display.remove(vidasGrupo)            
-                quantidadeVidas = quantidadeVidas - 1
+                quantidadeVidas = quantidadeVidas - 0.5
                 vidasGrupo = display.newGroup()
                 criarVidas(quantidadeVidas)
 
@@ -251,11 +252,66 @@ function scene:create( event )
 					timer.performWithDelay(	1000, GameOver)
                 end
 		   end 	
-			
-	   end
-	   Runtime:addEventListener("collision", CollisionIni1)
+		end
 
-	   
+	function CollisionIni2(event) 
+		local object1 = event.object1
+		local object2 = event.object2
+	 if ( object1.id == "ini2" and object2.id == "mob"
+		  or object1.id == "mob" and object2.id == "ini2" ) then
+			
+			display.remove(vidasGrupo)            
+			quantidadeVidas = quantidadeVidas - 0.5
+			vidasGrupo = display.newGroup()
+			criarVidas(quantidadeVidas)
+
+			if quantidadeVidas == 0 then
+				timer.performWithDelay(	1000, GameOver)
+			end
+	   end 	
+		
+	end
+	function CollisionIni3(event) 
+		local object1 = event.object1
+		local object2 = event.object2
+	 if ( object1.id == "ini3" and object2.id == "mob"
+		  or object1.id == "mob" and object2.id == "ini3") then
+			
+			display.remove(vidasGrupo)            
+			quantidadeVidas = quantidadeVidas - 0.5
+			vidasGrupo = display.newGroup()
+			criarVidas(quantidadeVidas)
+
+			if quantidadeVidas == 0 then
+				timer.performWithDelay(	1000, GameOver)
+			end
+	   end 	
+		
+	end
+	function CollisionIni4(event) 
+		local object1 = event.object1
+		local object2 = event.object2
+	 if ( object1.id == "ini4" and object2.id == "mob"
+		  or object1.id == "mob" and object2.id == "ini4") then
+			
+			display.remove(vidasGrupo)            
+			quantidadeVidas = quantidadeVidas - 0.5
+			vidasGrupo = display.newGroup()
+			criarVidas(quantidadeVidas)
+
+			if quantidadeVidas == 0 then
+				timer.performWithDelay(	1000, GameOver)
+			end
+	   end 	
+		
+	end
+	
+	   Runtime:addEventListener("collision", CollisionIni1)
+	   Runtime:addEventListener("collision", CollisionIni2)
+	   Runtime:addEventListener("collision", CollisionIni3)
+	   Runtime:addEventListener("collision", CollisionIni4)
+
+	   -------------------------------------------------------------------------------------------------------
 
 
 	
@@ -421,6 +477,9 @@ function scene:create( event )
 			
 		    Runtime:removeEventListener("collision",onCollision)
 			Runtime:removeEventListener("collision", CollisionIni1)
+			Runtime:removeEventListener("collision", CollisionIni2)
+			Runtime:removeEventListener("collision", CollisionIni3)
+			Runtime:removeEventListener("collision", CollisionIni4)
 	
 		elseif ( phase == "did" ) then
 			-- Code here runs immediately after the scene goes entirely off screen

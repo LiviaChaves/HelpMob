@@ -340,7 +340,41 @@ local uiGroup = display.newGroup()
 
 		Runtime:addEventListener("collision", onCollision)
 
-	----------------------------------------------------------------------------------------------------------
+	-----Inimigos-----------------------------------------------------------------------------------------------------
+	local ini1 =display.newImageRect("Imagens/im2.png",22,20)
+	ini1.x=105
+	ini1.y=50
+	ini1.id="ini1"
+
+	local ini2 =display.newImageRect("Imagens/im2.png",22,20)
+	ini2.x=200
+	ini2.y=20
+	ini2.id="ini2"
+
+	local ini3 =display.newImageRect("Imagens/im2.png",22,20)
+	ini3.x=200
+	ini3.y=400
+	ini3.id="ini3"
+
+	local ini4 =display.newImageRect("Imagens/im2.png",22,20)
+	ini4.x=300
+	ini4.y=100
+	ini4.id="ini4"
+
+	local ini5 =display.newImageRect("Imagens/im2.png",22,20)
+	ini5.x=80
+	ini5.y=200
+	ini5.id="ini5"
+
+	local ini6=display.newImageRect("Imagens/im2.png",22,20)
+	ini6.x=270
+	ini6.y=250
+	ini6.id="ini6"
+	-----------------------------------------------------------------------------------------------------
+
+ 	
+ 	
+	
 	--criação dos botões de movimentação
 
 		--- cria um vetor
@@ -491,7 +525,13 @@ local uiGroup = display.newGroup()
 	
 
 	--	physics.addBody(teste,"static")
-	    physics.addBody( cristalB, "static")
+		physics.addBody( cristalB, "static")
+		physics.addBody( ini1, "dynamic" )
+		physics.addBody( ini2, "dynamic" )
+		physics.addBody( ini3, "dynamic" )
+		physics.addBody( ini4, "dynamic" )
+		physics.addBody( ini5, "dynamic" )
+		physics.addBody( ini6, "dynamic" )
 		physics.addBody( mob, "dynamic" )
 		mob.isFixedRotation = true
 
