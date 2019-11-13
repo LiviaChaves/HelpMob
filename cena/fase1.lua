@@ -7,6 +7,7 @@ display.setStatusBar (display.HiddenStatusBar)
 	local backGroup  = display.newGroup()
 	local mainGroup  = display.newGroup()
 	local uiGroup = display.newGroup()
+	local vidasGrupo = display.newGroup()
 
 
 	local w = display.contentWidth
@@ -156,7 +157,16 @@ function scene:create( event )
 			
 		
 		----------------------------------------------------------------------
-
+		local quantidadeVidas = 3
+		function criarVidas(quantidadeVidas)
+			for i = 1, quantidadeVidas do
+				vida = display.newImageRect(vidasGrupo,'Imagens/vida.png',30,25)
+				vida.x = (display.contentWidth - vida.width * 0.22) - (5 * i+1) - vida.width * i + 20
+				vida.y = display.contentHeight - vida.height * 20
+			         
+			end
+	   end
+	   criarVidas(quantidadeVidas)
 		
 	--add o labirinto
 		local lab1 = display.newImage(backGroup,"Imagens/lab1.png")
@@ -171,6 +181,8 @@ function scene:create( event )
 		mob.y= 500
 		mob.myName = "mob"
 		mob.id="mob"
+
+		
 
 	    local vmenu = display.newImageRect(mainGroup,"Imagens/vmenu.png",40,40)
 		vmenu.x=20
@@ -203,21 +215,48 @@ function scene:create( event )
 		local ini1 = display.newImageRect(mainGroup,"Imagens/im1.png",21,25)
 		ini1.x=123
 		ini1.y=320
+		ini1.id="ini1"
 
 		local ini2 = display.newImageRect(mainGroup,"Imagens/im1.png",21,25)
 		ini2.x=30
 		ini2.y=50
+		ini2.id="ini2"
 
 		local ini3 = display.newImageRect(mainGroup,"Imagens/im1.png",21,25)
 		ini3.x=200
 		ini3.y=60
+		ini3.id="ini3"
 
 		local ini4 = display.newImageRect(mainGroup,"Imagens/im1.png",21,25)
 		ini4.x=200
 		ini4.y=220
+		ini4.id="ini4"
+
 		-------------------------------------------------------------------
-		
-	
+		function  GameOver()
+			composer.gotoScene("cena.gameover", "fade", 500 )
+	   end
+		function CollisionIni1(event) 
+			local object1 = event.object1
+			local object2 = event.object2
+		 if ( object1.id == "ini1" and object2.id == "mob"
+			  or object1.id == "mob" and object2.id == "ini1" ) then
+				
+                display.remove(vidasGrupo)            
+                quantidadeVidas = quantidadeVidas - 1
+                vidasGrupo = display.newGroup()
+                criarVidas(quantidadeVidas)
+
+                if quantidadeVidas == 0 then
+					timer.performWithDelay(	1000, GameOver)
+                end
+		   end 	
+			
+	   end
+	   Runtime:addEventListener("collision", CollisionIni1)
+
+	   
+
 
 	
 	--criação dos botões de movimentação
@@ -349,6 +388,7 @@ function scene:create( event )
 		sceneGroup:insert(backGroup)
 		sceneGroup:insert(mainGroup)
 		sceneGroup:insert(uiGroup)
+		sceneGroup:insert(vidasGrupo)
 		
 	end
 		  
@@ -377,8 +417,10 @@ function scene:create( event )
 	
 		if ( phase == "will" ) then
 			audio.stop( 1 )
-			composer.removeScene( "cena.fase1" )	
-			Runtime:removeEventListener("collision",onCollision)
+			composer.removeScene( "cena.fase1" )
+			
+		    Runtime:removeEventListener("collision",onCollision)
+			Runtime:removeEventListener("collision", CollisionIni1)
 	
 		elseif ( phase == "did" ) then
 			-- Code here runs immediately after the scene goes entirely off screen
