@@ -258,8 +258,8 @@
 		cristalA.id="cristalA"
 
 		-----------------Collision ente mob e cristalA---------------------------------
-		function  goNextLevel()
-           composer.gotoScene("cena.cenafinal", "fade", 500 )
+		function  CenaFase4()
+           composer.gotoScene("cena.fase4", "fade", 500 )
 		end
 
 		function onCollision(event) 
@@ -267,7 +267,7 @@
 		   local object2 = event.object2
 			if ( object1.id == "cristalA" and object2.id == "mob"
 			   or object1.id == "mob" and object2.id == "cristalA" ) then
-		     	timer.performWithDelay(	1000, goNextLevel)
+		     	timer.performWithDelay(	1000, CenaFase4)
 		   end 	
 			 
 		end

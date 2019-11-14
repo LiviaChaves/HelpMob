@@ -37,9 +37,7 @@ function scene:create( event )
     background.x = display.contentCenterX
     background.y = display.contentCenterY
    
-    logo = display.newImageRect(mainGroup, "Imagens/logo.png",430,170)
-    logo.x = 170
-    logo.y = 140
+
 
     local mobM = display.newImageRect(mainGroup,"Imagens/mobM.png",56,82)
 	mobM.x= 155

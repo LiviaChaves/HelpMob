@@ -36,14 +36,9 @@
 		audio.play( menus, { channel=1, loops=-1 })
 	end
 
-	local function Cenafase2()
-		
-		audio.stop( 1 )
-		composer.removeScene( "cena.fase1" )
-		
-	    composer.gotoScene("cena.fase2" , {effect= "crossFade", time= 500})
-  
-	  end
+	local function CenaFinal()
+	    composer.gotoScene("cena.cenafinal" , {effect= "crossFade", time= 500})
+   end
 	
 	-- -----------------------------------------------------------------------------------
 	-- Scene event functions
@@ -57,34 +52,116 @@
 	
 		
 		----------------------------------------------------------------------
-
 		
+		local fundo4 = display.newImage(backGroup,"Imagens/fundo4.png")
+		fundo4.x = display.contentCenterX
+		fundo4.y = display.contentCenterY
+
+		------------
+	
 
 		local lab4 = display.newImage(backGroup,"Imagens/lab4.png")
 		lab4.x = display.contentCenterX
 		lab4.y = display.contentCenterY
-
-	
-		
 
 	-- add o mob
 		local mob = display.newImage(mainGroup,"Imagens/mob.png")
 		mob.x= 700
 		mob.y= 500
 		mob.name = "mob"
+---------------------------------------------------------------------------
+        local forma= display.newImageRect(backGroup,"formas/forma.png",15,96)
+		forma.x = 269
+		forma.y = 440
 
+		local forma2= display.newImageRect(backGroup,"formas/forma.png",15,45)
+		forma2.x = 291
+		forma2.y = 380
+
+		local forma3= display.newImageRect(backGroup,"formas/forma.png",15,96)
+		forma3.x = 230
+		forma3.y = 399
+
+		local forma4= display.newImageRect(backGroup,"formas/forma.png",15,145)
+		forma4.x = 190
+		forma4.y = 330
+
+		
+		local forma5= display.newImageRect(backGroup,"formas/forma.png",15,200)
+		forma5.x = 45
+		forma5.y = 390
+
+		local forma6= display.newImageRect(backGroup,"formas/forma.png",15,50)
+		forma6.x = 120
+		forma6.y = 160
+
+		local forma7= display.newImageRect(backGroup,"formas/forma.png",15,112)
+		forma7.x = 133
+		forma7.y = 50
+
+		local forma8= display.newImageRect(backGroup,"formas/forma.png",15,103)
+		forma8.x = 93
+		forma8.y = 85
+
+		local forma9= display.newImageRect(backGroup,"formas/forma.png",15,60)
+		forma9.x = 180
+		forma9.y = 25
+
+		local forma10= display.newImageRect(backGroup,"formas/forma.png",15,35)
+		forma10.x = 172
+		forma10.y = 100
+
+		local forma11= display.newImageRect(backGroup,"formas/forma.png",15,35)
+		forma11.x = 220
+		forma11.y = 70
+
+		local forma12= display.newImageRect(backGroup,"formas/forma.png",15,60)
+		forma12.x = 300
+		forma12.y = 25
+
+		local forma13= display.newImageRect(backGroup,"formas/forma.png",15,60)
+		forma13.x = 257
+		forma13.y = 23
+
+		local forma14= display.newImageRect(backGroup,"formas/forma.png",15,47)
+		forma14.x = 47
+		forma14.y = 55
+
+		local forma15= display.newImageRect(backGroup,"formas/forma.png",15,100)
+		forma15.x = 70
+		forma15.y = 240
+
+		local forma16= display.newImageRect(backGroup,"formas/forma.png",15,100)
+		forma16.x = 150
+		forma16.y = 270
+
+		local forma16= display.newImageRect(backGroup,"formas/forma.png",15,100)
+		forma16.x = 214
+		forma16.y = 180
+
+		local forma16= display.newImageRect(backGroup,"formas/forma.png",15,40)
+		forma16.x = 167
+		forma16.y = 200
+
+		local forma17= display.newImageRect(backGroup,"formas/forma.png",15,40)
+		forma17.x = 251
+		forma17.y = 153
+
+		local forma18= display.newImageRect(backGroup,"formas/forma.png",15,40)
+		forma18.x = 253
+		forma18.y = 250
+
+		
+
+
+
+
+		
 
 
 	
 
-	--criar Collision entre mob e o cristal
-	local function onCollision( event )
-		if ( event.phase == "began" ) then -- - indica que uma colisão entre dois corpos iniciou o contato inicial.
-			print( "began: " .. event.object1 .. " & " .. event.object2 )
-		elseif ( event.phase == "ended" ) then-- - indica que uma colisão entre dois corpos foi concluída.
-			print( "ended: " .. event.object1 .. " & " .. event.object2 )
-		end
-	end
+
 	
 	--criação dos botões de movimentação
 

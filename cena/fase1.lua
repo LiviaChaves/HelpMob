@@ -167,35 +167,32 @@ function scene:create( event )
 			end
 	   end
 	   criarVidas(quantidadeVidas)
-		
+	-----------------------------------------------------------------------------------------	
 	--add o labirinto
 		local lab1 = display.newImage(backGroup,"Imagens/lab1.png")
 		lab1.x = display.contentCenterX
 		lab1.y = display.contentCenterY
 
-		
-
-	-- add o mob
+-------- add o mob----------------------------------------------------------------------------
 		local mob = display.newImage(mainGroup,"Imagens/mob.png")
 		mob.x= 700
 		mob.y= 500
 		mob.myName = "mob"
 		mob.id="mob"
-
-		
-
+------------------------------------------------------------------------------------------------
 	    local vmenu = display.newImageRect(mainGroup,"Imagens/vmenu.png",40,40)
 		vmenu.x=20
 		vmenu.y=-25
 		vmenu:addEventListener("tap", CenaVMenu)
 
-	--add o cristal verde
+---add o cristal verde-------------------------------------------------------------------------
 		local cristalV=display.newImageRect(mainGroup,"Imagens/cristalV.png",28,26)
 		cristalV.x=display.contentCenterX
 		cristalV.y=display.contentCenterY-235
 		cristalV.id="cristalV"
 	
 		function  CenaFase2()
+			 
              composer.gotoScene("cena.fase2", "fade", 500 )
 		end
 
@@ -232,7 +229,31 @@ function scene:create( event )
 		ini4.y=220
 		ini4.id="ini4"
 
-		-------------------------------------------------------------------
+		---------Move inimigo----------------------------------------------------------
+		function moveInimigo1()
+			transition.to(ini1,{time=3800,x=math.random(50,100),y=
+			math.random( 10, 100 ),onComplete=moveInimigo1})
+		end
+		moveInimigo1()
+		function moveInimigo2()
+			transition.to(ini2,{time=3800,x=math.random(60,200),y=
+			math.random( 20, 250 ),onComplete=moveInimigo2})
+		end
+		moveInimigo2()
+		function moveInimigo3()
+			transition.to(ini3,{time=3800,x=math.random(70,250),y=
+			math.random( 70, 350 ),onComplete=moveInimigo3})
+		end
+		moveInimigo3()
+		function moveInimigo4()
+			transition.to(ini4,{time=3800,x=math.random(20,210),y=
+			math.random( 67, 184 ),onComplete=moveInimigo4})
+		end
+		moveInimigo4()
+
+
+
+		-------------------------------------------------------------------------------
 		function  GameOver()
 			composer.gotoScene("cena.gameover", "fade", 500 )
 	   end
@@ -242,7 +263,7 @@ function scene:create( event )
 			local object2 = event.object2
 		 if ( object1.id == "ini1" and object2.id == "mob"
 			  or object1.id == "mob" and object2.id == "ini1" ) then
-				
+			
                 display.remove(vidasGrupo)            
                 quantidadeVidas = quantidadeVidas - 0.5
                 vidasGrupo = display.newGroup()
@@ -276,7 +297,7 @@ function scene:create( event )
 		local object2 = event.object2
 	 if ( object1.id == "ini3" and object2.id == "mob"
 		  or object1.id == "mob" and object2.id == "ini3") then
-			
+		
 			display.remove(vidasGrupo)            
 			quantidadeVidas = quantidadeVidas - 0.5
 			vidasGrupo = display.newGroup()
@@ -293,7 +314,7 @@ function scene:create( event )
 		local object2 = event.object2
 	 if ( object1.id == "ini4" and object2.id == "mob"
 		  or object1.id == "mob" and object2.id == "ini4") then
-			
+		 
 			display.remove(vidasGrupo)            
 			quantidadeVidas = quantidadeVidas - 0.5
 			vidasGrupo = display.newGroup()
@@ -306,10 +327,10 @@ function scene:create( event )
 		
 	end
 	
-	   Runtime:addEventListener("collision", CollisionIni1)
-	   Runtime:addEventListener("collision", CollisionIni2)
-	   Runtime:addEventListener("collision", CollisionIni3)
-	   Runtime:addEventListener("collision", CollisionIni4)
+	Runtime:addEventListener("collision", CollisionIni1)
+    Runtime:addEventListener("collision", CollisionIni2)
+    Runtime:addEventListener("collision", CollisionIni3)
+    Runtime:addEventListener("collision", CollisionIni4)   
 
 	   -------------------------------------------------------------------------------------------------------
 
@@ -439,12 +460,17 @@ function scene:create( event )
 		physics.addBody( ini4, "dynamic" )
 		
 		mob.isFixedRotation = true
+		ini1.isFixedRotation = true
+		ini2.isFixedRotation = true
+		ini3.isFixedRotation = true
+		ini4.isFixedRotation = true
 
 		
 		sceneGroup:insert(backGroup)
 		sceneGroup:insert(mainGroup)
 		sceneGroup:insert(uiGroup)
 		sceneGroup:insert(vidasGrupo)
+		
 		
 	end
 		  
@@ -475,6 +501,7 @@ function scene:create( event )
 			audio.stop( 1 )
 			composer.removeScene( "cena.fase1" )
 			
+
 		    Runtime:removeEventListener("collision",onCollision)
 			Runtime:removeEventListener("collision", CollisionIni1)
 			Runtime:removeEventListener("collision", CollisionIni2)
