@@ -187,7 +187,8 @@ function scene:create( event )
 
 		function onCollision(event) 
 	         local object1 = event.object1
-	         local object2 = event.object2
+			 local object2 = event.object2
+		
 		  if ( object1.id == "cristalV" and object2.id == "mob"
 			   or object1.id == "mob" and object2.id == "cristalV" ) then
 		     	timer.performWithDelay(	1000, CenaFase2)
@@ -250,9 +251,10 @@ function scene:create( event )
 		function CollisionIni1(event) 
 			local object1 = event.object1
 			local object2 = event.object2
+		
 		 if ( object1.id == "ini1" and object2.id == "mob"
 			  or object1.id == "mob" and object2.id == "ini1" ) then
-			
+			  
                 display.remove(vidasGrupo)            
                 quantidadeVidas = quantidadeVidas - 0.5
                 vidasGrupo = display.newGroup()
@@ -267,9 +269,10 @@ function scene:create( event )
 	function CollisionIni2(event) 
 		local object1 = event.object1
 		local object2 = event.object2
+		
 	 if ( object1.id == "ini2" and object2.id == "mob"
 		  or object1.id == "mob" and object2.id == "ini2" ) then
-			
+	
 			display.remove(vidasGrupo)            
 			quantidadeVidas = quantidadeVidas - 0.5
 			vidasGrupo = display.newGroup()
@@ -286,7 +289,7 @@ function scene:create( event )
 		local object2 = event.object2
 	 if ( object1.id == "ini3" and object2.id == "mob"
 		  or object1.id == "mob" and object2.id == "ini3") then
-		
+		   
 			display.remove(vidasGrupo)            
 			quantidadeVidas = quantidadeVidas - 0.5
 			vidasGrupo = display.newGroup()
@@ -303,7 +306,7 @@ function scene:create( event )
 		local object2 = event.object2
 	 if ( object1.id == "ini4" and object2.id == "mob"
 		  or object1.id == "mob" and object2.id == "ini4") then
-		 
+		  
 			display.remove(vidasGrupo)            
 			quantidadeVidas = quantidadeVidas - 0.5
 			vidasGrupo = display.newGroup()
