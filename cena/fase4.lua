@@ -356,52 +356,52 @@
 
 ----------------MOVE INIMIGOS--------------------------------------------------------------------------
 		function moveInimigo1()
-			transition.to(ini1,{time=3500,x=math.random(6,311),y=
+			transition.to(ini1,{time=3900,x=math.random(6,311),y=
 			math.random( 25, 444 ),onComplete=moveInimigo1})
 		end
 		moveInimigo1()
 		function moveInimigo2()
-			transition.to(ini2,{time=3500,x=math.random(6,311),y=
+			transition.to(ini2,{time=3900,x=math.random(6,311),y=
 			math.random(  25, 444 ),onComplete=moveInimigo2})
 		end
 		moveInimigo2()
 		function moveInimigo3()
-			transition.to(ini3,{time=3500,x=math.random(6,311),y=
+			transition.to(ini3,{time=3900,x=math.random(6,311),y=
 			math.random(  25, 444 ),onComplete=moveInimigo3})
 		end
 		moveInimigo3()
 		function moveInimigo4()
-			transition.to(ini4,{time=3500,x=math.random(6,311),y=
+			transition.to(ini4,{time=3900,x=math.random(6,311),y=
 			math.random(  25, 444 ),onComplete=moveInimigo4})
 		end
 		moveInimigo4()
 
 		function moveInimigo5()
-			transition.to(ini5,{time=3500,x=math.random(6,311),y=
+			transition.to(ini5,{time=3900,x=math.random(6,311),y=
 			math.random(  25, 444 ),onComplete=moveInimigo5})
 		end
 		moveInimigo5()
 
 		function moveInimigo6()
-			transition.to(ini6,{time=3500,x=math.random(6,311),y=
+			transition.to(ini6,{time=3900,x=math.random(6,311),y=
 			math.random(  25, 444),onComplete=moveInimigo6})
 		end
 		moveInimigo6()
 
 		function moveInimigo7()
-			transition.to(ini7,{time=3500,x=math.random(6,311),y=
+			transition.to(ini7,{time=3900,x=math.random(6,311),y=
 			math.random(  25, 444 ),onComplete=moveInimigo7})
 		end
 		moveInimigo7()
 
 		function moveInimigo8()
-			transition.to(ini8,{time=3500,x=math.random(6,311),y=
+			transition.to(ini8,{time=3900,x=math.random(6,311),y=
 			math.random(  25, 444 ),onComplete=moveInimigo8})
 		end
 		moveInimigo8()
 
 		function moveInimigo9()
-			transition.to(ini9,{time=3500,x=math.random(6,311),y=
+			transition.to(ini9,{time=3900,x=math.random(6,311),y=
 			math.random(  25, 444 ),onComplete=moveInimigo9})
 		end
 		moveInimigo9()
