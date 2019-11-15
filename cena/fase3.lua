@@ -324,40 +324,40 @@
 	ini7.id="ini7"
 	----------MOVE INIMIGOS-------------------------------------------------------------------------------------------
 	function moveInimigo1()
-		transition.to(ini1,{time=4000,x=math.random(25,295),y=
+		transition.to(ini1,{time=4900,x=math.random(25,295),y=
 		math.random( 45, 447 ),onComplete=moveInimigo1})
 	end
 	moveInimigo1()
 	function moveInimigo2()
-		transition.to(ini2,{time=4000,x=math.random(25,295),y=
+		transition.to(ini2,{time=4900,x=math.random(25,295),y=
 		math.random( 45, 447 ),onComplete=moveInimigo2})
 	end
 	moveInimigo2()
 	function moveInimigo3()
-		transition.to(ini3,{time=4000,x=math.random(25,295),y=
+		transition.to(ini3,{time=4900,x=math.random(25,295),y=
 		math.random( 45, 447 ),onComplete=moveInimigo3})
 	end
 	moveInimigo3()
 	function moveInimigo4()
-		transition.to(ini4,{time=4000,x=math.random(25,295),y=
+		transition.to(ini4,{time=4900,x=math.random(25,295),y=
 		math.random( 45, 447 ),onComplete=moveInimigo4})
 	end
 	moveInimigo4()
 
 	function moveInimigo5()
-		transition.to(ini5,{time=4000,x=math.random(25,295),y=
+		transition.to(ini5,{time=4900,x=math.random(25,295),y=
 		math.random( 45, 447 ),onComplete=moveInimigo5})
 	end
 	moveInimigo5()
 
 	function moveInimigo6()
-		transition.to(ini6,{time=3500,x=math.random(25,295),y=
+		transition.to(ini6,{time=4900,x=math.random(25,295),y=
 		math.random(45, 447 ),onComplete=moveInimigo6})
 	end
 	moveInimigo6()
 
 	function moveInimigo7()
-		transition.to(ini7,{time=3500,x=math.random(25,295),y=
+		transition.to(ini7,{time=4900,x=math.random(25,295),y=
 		math.random(45, 447 ),onComplete=moveInimigo7})
 	end
 	moveInimigo7()

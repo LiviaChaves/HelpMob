@@ -383,33 +383,33 @@ local vidasGrupo = display.newGroup()
 	
 	-----------Move inimigoS----------------------------------------------------------
 		function moveInimigo1()
-			transition.to(ini1,{time=3900,x=math.random(12,315),y=
+			transition.to(ini1,{time=5000,x=math.random(12,315),y=
 			math.random( -1, 450 ),onComplete=moveInimigo1})
 		end
 		moveInimigo1()
 		function moveInimigo2()
-			transition.to(ini2,{time=4500,x=math.random(12,315),y=
+			transition.to(ini2,{time=5000,x=math.random(12,315),y=
 			math.random(-1, 450  ),onComplete=moveInimigo2})
 		end
 		moveInimigo2()
 		function moveInimigo3()
-			transition.to(ini3,{time=4500,x=math.random(12,315),y=
+			transition.to(ini3,{time=5000,x=math.random(12,315),y=
 			math.random( -1, 450 ),onComplete=moveInimigo3})
 		end
 		moveInimigo3()
 		function moveInimigo4()
-			transition.to(ini4,{time=4500,x=math.random(12,315),y=
+			transition.to(ini4,{time=5000,x=math.random(12,315),y=
 			math.random( -1, 450  ),onComplete=moveInimigo4})
 		end
 		moveInimigo4()
 
 		function moveInimigo5()
-			transition.to(ini5,{time=4500,x=math.random(12,315),y=
+			transition.to(ini5,{time=5000,x=math.random(12,315),y=
 			math.random(-1, 450  ),onComplete=moveInimigo5})
 		end
 		moveInimigo5()
 		function moveInimigo6()
-			transition.to(ini6,{time=4500,x=math.random(12,315),y=
+			transition.to(ini6,{time=5000,x=math.random(12,315),y=
 			math.random( -1, 450  ),onComplete=moveInimigo6})
 		end
 		moveInimigo6()
