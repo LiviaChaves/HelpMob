@@ -14,34 +14,22 @@ display.setStatusBar (display.HiddenStatusBar)
 	local h = display.contentHeight
 
 
-
-
-
-	-- -----------------------------------------------------------------------------------
-	-- Code outside of the scene event functions below will only be executed ONCE unless
-	-- the scene is removed entirely (not recycled) via "composer.removeScene()"
-	-- -----------------------------------------------------------------------------------
-	
-
 	local function CenaVMenu()
 		audio.stop( 1 )
-		composer.removeScene ("cena.fase1") 
-		audio.play(click, { channel=2 })
+		composer.removeScene( "cena.fase2" )
+	    audio.play(click, { channel=2 })
         audio.setVolume( 2.0, { channel=2 } )
 		composer.gotoScene("cena.menu" , {effect= "crossFade", time= 500})
 		menus = audio.loadSound( "music/menus.mp3" )
 		audio.play( menus, { channel=1, loops=-1 })
 	end
 
-	-- -----------------------------------------------------------------------------------
-	-- Scene event functions
-	-- -----------------------------------------------------------------------------------
 
 	-- create()
 function scene:create( event )
 	
-    local sceneGroup = self.view
-
+	local sceneGroup = self.view
+	
 		local physics = require( "physics" )
 		physics.start()
 		physics.setGravity(0, 0)   
@@ -156,13 +144,14 @@ function scene:create( event )
 		forma21.y = 30
 			
 		
-		----------------------------------------------------------------------
+		----------VIDAS------------------------------------------------------------
 		local quantidadeVidas = 3
 		function criarVidas(quantidadeVidas)
 			for i = 1, quantidadeVidas do
-				vida = display.newImageRect(vidasGrupo,'Imagens/vida.png',30,25)
+				vida = display.newImageRect('Imagens/vida.png',30,25)
 				vida.x = (display.contentWidth - vida.width * 0.22) - (5 * i+1) - vida.width * i + 20
 				vida.y = display.contentHeight - vida.height * 20
+				vidasGrupo:insert(vida) 
 			         
 			end
 	   end
@@ -500,13 +489,14 @@ function scene:create( event )
 		if ( phase == "will" ) then
 			audio.stop( 1 )
 			composer.removeScene( "cena.fase1" )
-			
-
-		    Runtime:removeEventListener("collision",onCollision)
+			Runtime:removeEventListener("collision",onCollision)
 			Runtime:removeEventListener("collision", CollisionIni1)
 			Runtime:removeEventListener("collision", CollisionIni2)
 			Runtime:removeEventListener("collision", CollisionIni3)
 			Runtime:removeEventListener("collision", CollisionIni4)
+			
+
+		    
 	
 		elseif ( phase == "did" ) then
 			-- Code here runs immediately after the scene goes entirely off screen
@@ -520,7 +510,7 @@ function scene:create( event )
 	
 		local sceneGroup = self.view
 	
-	 
+	    display.remove(vidasGrupo)
 		physics.stop()
 	
 	end

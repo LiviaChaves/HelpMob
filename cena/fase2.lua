@@ -46,8 +46,7 @@ local vidasGrupo = display.newGroup()
 	
 		local sceneGroup = self.view
 
-	
-		audio.reserveChannels( 1 )
+    	audio.reserveChannels( 1 )
 		audio.reserveChannels( 2 )
 
 		musi2 = audio.loadSound( "music/musi2.mp3" )
@@ -415,10 +414,7 @@ local vidasGrupo = display.newGroup()
 		end
 		moveInimigo6()
 
-
-
-
-	---------------------------------------------
+	------Collision Inimigo---------------------------------------
 	function  GameOver()
 		composer.gotoScene("cena.gameover", "fade", 500 )
    end
@@ -440,62 +436,99 @@ local vidasGrupo = display.newGroup()
 	   end 	
 	end
 
-function CollisionIni2(event) 
-	local object1 = event.object1
-	local object2 = event.object2
- if ( object1.id == "ini2" and object2.id == "mob"
-	  or object1.id == "mob" and object2.id == "ini2" ) then
-		
-		display.remove(vidasGrupo)            
-		quantidadeVidas = quantidadeVidas - 0.5
-		vidasGrupo = display.newGroup()
-		criarVidas(quantidadeVidas)
+	function CollisionIni2(event) 
+		local object1 = event.object1
+		local object2 = event.object2
+	if ( object1.id == "ini2" and object2.id == "mob"
+		or object1.id == "mob" and object2.id == "ini2" ) then
+			
+			display.remove(vidasGrupo)            
+			quantidadeVidas = quantidadeVidas - 0.5
+			vidasGrupo = display.newGroup()
+			criarVidas(quantidadeVidas)
 
-		if quantidadeVidas == 0 then
-			timer.performWithDelay(	1000, GameOver)
-		end
-   end 	
-	
-end
-function CollisionIni3(event) 
-	local object1 = event.object1
-	local object2 = event.object2
- if ( object1.id == "ini3" and object2.id == "mob"
-	  or object1.id == "mob" and object2.id == "ini3") then
+			if quantidadeVidas == 0 then
+				timer.performWithDelay(	1000, GameOver)
+			end
+	end 	
 		
-		display.remove(vidasGrupo)            
-		quantidadeVidas = quantidadeVidas - 0.5
-		vidasGrupo = display.newGroup()
-		criarVidas(quantidadeVidas)
+	end
 
-		if quantidadeVidas == 0 then
-			timer.performWithDelay(	1000, GameOver)
-		end
-   end 	
-	
-end
-function CollisionIni4(event) 
-	local object1 = event.object1
-	local object2 = event.object2
- if ( object1.id == "ini4" and object2.id == "mob"
-	  or object1.id == "mob" and object2.id == "ini4") then
+	function CollisionIni3(event) 
+		local object1 = event.object1
+		local object2 = event.object2
+	if ( object1.id == "ini3" and object2.id == "mob"
+		or object1.id == "mob" and object2.id == "ini3") then
+			
+			display.remove(vidasGrupo)            
+			quantidadeVidas = quantidadeVidas - 0.5
+			vidasGrupo = display.newGroup()
+			criarVidas(quantidadeVidas)
+
+			if quantidadeVidas == 0 then
+				timer.performWithDelay(	1000, GameOver)
+			end
+	end 	
 		
-		display.remove(vidasGrupo)            
-		quantidadeVidas = quantidadeVidas - 0.5
-		vidasGrupo = display.newGroup()
-		criarVidas(quantidadeVidas)
+	end
 
-		if quantidadeVidas == 0 then
-			timer.performWithDelay(	1000, GameOver)
-		end
-   end 	
-	
+	function CollisionIni4(event) 
+		local object1 = event.object1
+		local object2 = event.object2
+	if ( object1.id == "ini4" and object2.id == "mob"
+		or object1.id == "mob" and object2.id == "ini4") then
+			
+			display.remove(vidasGrupo)            
+			quantidadeVidas = quantidadeVidas - 0.5
+			vidasGrupo = display.newGroup()
+			criarVidas(quantidadeVidas)
+
+			if quantidadeVidas == 0 then
+				timer.performWithDelay(	1000, GameOver)
+			end
+	end 	
 end
+
+	function CollisionIni5(event) 
+		local object1 = event.object1
+		local object2 = event.object2
+	if ( object1.id == "ini5" and object2.id == "mob"
+		or object1.id == "mob" and object2.id == "ini5") then
+			
+			display.remove(vidasGrupo)            
+			quantidadeVidas = quantidadeVidas - 0.5
+			vidasGrupo = display.newGroup()
+			criarVidas(quantidadeVidas)
+
+			if quantidadeVidas == 0 then
+				timer.performWithDelay(	1000, GameOver)
+			end
+	end 	
+end
+
+	function CollisionIni6(event) 
+		local object1 = event.object1
+		local object2 = event.object2
+	if ( object1.id == "ini6" and object2.id == "mob"
+		or object1.id == "mob" and object2.id == "ini6") then
+			
+			display.remove(vidasGrupo)            
+			quantidadeVidas = quantidadeVidas - 0.5
+			vidasGrupo = display.newGroup()
+			criarVidas(quantidadeVidas)
+
+			if quantidadeVidas == 0 then
+				timer.performWithDelay(	1000, GameOver)
+			end
+		end 
+end 
 
    Runtime:addEventListener("collision", CollisionIni1)
    Runtime:addEventListener("collision", CollisionIni2)
    Runtime:addEventListener("collision", CollisionIni3)
    Runtime:addEventListener("collision", CollisionIni4)
+   Runtime:addEventListener("collision", CollisionIni5)
+   Runtime:addEventListener("collision", CollisionIni6)
 
  	
  	
@@ -702,11 +735,13 @@ end
 			audio.stop( 1 )
 			composer.removeScene( "cena.fase2" )
 			Runtime:removeEventListener("collision",onCollision)
-			Runtime:removeEventListener("collision",onCollision)
+			
 			Runtime:removeEventListener("collision", CollisionIni1)
 			Runtime:removeEventListener("collision", CollisionIni2)
 			Runtime:removeEventListener("collision", CollisionIni3)
 			Runtime:removeEventListener("collision", CollisionIni4)
+			Runtime:removeEventListener("collision", CollisionIni5)
+			Runtime:removeEventListener("collision", CollisionIni6)
 	
 		elseif ( phase == "did" ) then
 			-- Code here runs immediately after the scene goes entirely off screen
@@ -720,6 +755,7 @@ end
 	
 		local sceneGroup = self.view
 		-- Code here runs prior to the removal of scene's view
+		display.remove(vidasGrupo)
 		physics.stop()
 	
 	end

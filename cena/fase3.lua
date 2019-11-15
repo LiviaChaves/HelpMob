@@ -8,6 +8,7 @@
 	local backGroup  = display.newGroup()
 	local mainGroup  = display.newGroup()
 	local uiGroup = display.newGroup()
+	local vidasGrupo = display.newGroup()
 
 
 	local w = display.contentWidth
@@ -232,7 +233,18 @@
 		forma42.x = 85
 		forma42.y = 447
 
-    ----------------------------------------------------------------------
+	------------VIDAS----------------------------------------------------------
+	local quantidadeVidas = 3
+		function criarVidas(quantidadeVidas)
+			for i = 1, quantidadeVidas do
+				vida = display.newImageRect('Imagens/vida.png',30,25)
+				vida.x = (display.contentWidth - vida.width * 0.22) - (5 * i+1) - vida.width * i + 20
+				vida.y = display.contentHeight - vida.height * 20
+				vidasGrupo:insert(vida) 
+			         
+			end
+	   end
+	   criarVidas(quantidadeVidas)
 
 		
 	--add o labirinto---------------------------------------------------
@@ -275,47 +287,212 @@
 		Runtime:addEventListener("collision", onCollision)
 		
 	-----Inimigos-----------------------------------------------------------------------------------------------------
-	local ini1 =display.newImageRect("Imagens/im3.png",45,45)
+	local ini1 =display.newImageRect(mainGroup,"Imagens/im3.png",45,45)
 	ini1.x=93
 	ini1.y=50
 	ini1.id="ini1"
 
-	local ini2 =display.newImageRect("Imagens/im3.png",45,45)
+	local ini2 =display.newImageRect(mainGroup,"Imagens/im3.png",45,45)
 	ini2.x=190
 	ini2.y=20
 	ini2.id="ini2"
 
-	local ini3 =display.newImageRect("Imagens/im3.png",45,45)
+	local ini3 =display.newImageRect(mainGroup,"Imagens/im3.png",45,45)
 	ini3.x=200
 	ini3.y=400
 	ini3.id="ini3"
 
-	local ini4 =display.newImageRect("Imagens/im3.png",45,45)
+	local ini4 =display.newImageRect(mainGroup,"Imagens/im3.png",45,45)
 	ini4.x=300
 	ini4.y=120
 	ini4.id="ini4"
 
-	local ini5 =display.newImageRect("Imagens/im3.png",45,45)
+	local ini5 =display.newImageRect(mainGroup,"Imagens/im3.png",45,45)
 	ini5.x=80
 	ini5.y=300
 	ini5.id="ini5"
 
-	local ini6=display.newImageRect("Imagens/im3.png",45,45)
+	local ini6=display.newImageRect(mainGroup,"Imagens/im3.png",45,45)
 	ini6.x=275
 	ini6.y=210
 	ini6.id="ini6"
 
 	
-	local ini7=display.newImageRect("Imagens/im3.png",45,45)
+	local ini7=display.newImageRect(mainGroup,"Imagens/im3.png",45,45)
 	ini7.x=30
 	ini7.y=420
 	ini7.id="ini7"
-	-----------------------------------------------------------------------------------------------------
+	----------MOVE INIMIGO-------------------------------------------------------------------------------------------
+	function moveInimigo1()
+		transition.to(ini1,{time=3500,x=math.random(50,150),y=
+		math.random( 10, 150 ),onComplete=moveInimigo1})
+	end
+	moveInimigo1()
+	function moveInimigo2()
+		transition.to(ini2,{time=3500,x=math.random(90,500),y=
+		math.random( 20, 250 ),onComplete=moveInimigo2})
+	end
+	moveInimigo2()
+	function moveInimigo3()
+		transition.to(ini3,{time=3500,x=math.random(70,400),y=
+		math.random( 110, 150 ),onComplete=moveInimigo3})
+	end
+	moveInimigo3()
+	function moveInimigo4()
+		transition.to(ini4,{time=3500,x=math.random(27,350),y=
+		math.random( 60, 104 ),onComplete=moveInimigo4})
+	end
+	moveInimigo4()
 
+	function moveInimigo5()
+		transition.to(ini5,{time=3500,x=math.random(79,210),y=
+		math.random( 30, 384 ),onComplete=moveInimigo5})
+	end
+	moveInimigo5()
 
+	function moveInimigo6()
+		transition.to(ini6,{time=3500,x=math.random(300,400),y=
+		math.random( 19, 300 ),onComplete=moveInimigo6})
+	end
+	moveInimigo6()
 
+	function moveInimigo7()
+		transition.to(ini7,{time=3500,x=math.random(90,100),y=
+		math.random( 101, 210 ),onComplete=moveInimigo7})
+	end
+	moveInimigo7()
+
+---------------Collision Inimigo-----------------------------------------------------------------------------
+	function  GameOver()
+		composer.gotoScene("cena.gameover", "fade", 500 )
+	end
+
+	function CollisionIni1(event) 
+		local object1 = event.object1
+		local object2 = event.object2
+	if ( object1.id == "ini1" and object2.id == "mob"
+		or object1.id == "mob" and object2.id == "ini1" ) then
+			display.remove(vidasGrupo)            
+			quantidadeVidas = quantidadeVidas - 0.5
+			vidasGrupo = display.newGroup()
+			criarVidas(quantidadeVidas)
+
+			if quantidadeVidas == 0 then
+				timer.performWithDelay(	1000, GameOver)
+			end
+	   end 	
+	end
+
+	function CollisionIni2(event) 
+		local object1 = event.object1
+		local object2 = event.object2
+	if ( object1.id == "ini2" and object2.id == "mob"
+		or object1.id == "mob" and object2.id == "ini2" ) then
+			
+			display.remove(vidasGrupo)            
+			quantidadeVidas = quantidadeVidas - 0.5
+			vidasGrupo = display.newGroup()
+			criarVidas(quantidadeVidas)
+
+			if quantidadeVidas == 0 then
+				timer.performWithDelay(	1000, GameOver)
+			end
+	end 	
+end
+
+	function CollisionIni3(event) 
+		local object1 = event.object1
+		local object2 = event.object2
+	if ( object1.id == "ini3" and object2.id == "mob"
+		or object1.id == "mob" and object2.id == "ini3") then
+			display.remove(vidasGrupo)            
+			quantidadeVidas = quantidadeVidas - 0.5
+			vidasGrupo = display.newGroup()
+			criarVidas(quantidadeVidas)
+
+			if quantidadeVidas == 0 then
+				timer.performWithDelay(	1000, GameOver)
+			end
+	end 	
+end
+
+	function CollisionIni4(event) 
+		local object1 = event.object1
+		local object2 = event.object2
+	if ( object1.id == "ini4" and object2.id == "mob"
+		or object1.id == "mob" and object2.id == "ini4") then
+			
+			display.remove(vidasGrupo)            
+			quantidadeVidas = quantidadeVidas - 0.5
+			vidasGrupo = display.newGroup()
+			criarVidas(quantidadeVidas)
+
+			if quantidadeVidas == 0 then
+				timer.performWithDelay(	1000, GameOver)
+			end
+	end 	
+end
+
+	function CollisionIni5(event) 
+		local object1 = event.object1
+		local object2 = event.object2
+	if ( object1.id == "ini5" and object2.id == "mob"
+		or object1.id == "mob" and object2.id == "ini5") then
+			
+			display.remove(vidasGrupo)            
+			quantidadeVidas = quantidadeVidas - 0.5
+			vidasGrupo = display.newGroup()
+			criarVidas(quantidadeVidas)
+
+			if quantidadeVidas == 0 then
+				timer.performWithDelay(	1000, GameOver)
+			end
+		end 	
+	end
+
+	function CollisionIni6(event) 
+		local object1 = event.object1
+		local object2 = event.object2
+	if ( object1.id == "ini6" and object2.id == "mob"
+		or object1.id == "mob" and object2.id == "ini6") then
+			
+			display.remove(vidasGrupo)            
+			quantidadeVidas = quantidadeVidas - 0.5
+			vidasGrupo = display.newGroup()
+			criarVidas(quantidadeVidas)
+
+			if quantidadeVidas == 0 then
+				timer.performWithDelay(	1000, GameOver)
+			end
+		end 
+	end 
+
+	function CollisionIni7(event) 
+		local object1 = event.object1
+		local object2 = event.object2
+	if ( object1.id == "ini7" and object2.id == "mob"
+		or object1.id == "mob" and object2.id == "ini7") then
+			
+			display.remove(vidasGrupo)            
+			quantidadeVidas = quantidadeVidas - 0.5
+			vidasGrupo = display.newGroup()
+			criarVidas(quantidadeVidas)
+
+			if quantidadeVidas == 0 then
+				timer.performWithDelay(	1000, GameOver)
+			end
+		end 
+	end 
 	
-	--criação dos botões de movimentação
+	Runtime:addEventListener("collision", CollisionIni1)
+	Runtime:addEventListener("collision", CollisionIni2)
+	Runtime:addEventListener("collision", CollisionIni3)
+	Runtime:addEventListener("collision", CollisionIni4)
+	Runtime:addEventListener("collision", CollisionIni5)
+	Runtime:addEventListener("collision", CollisionIni6)
+	Runtime:addEventListener("collision", CollisionIni7)
+	
+------criação dos botões de movimentação-------------------------------------------------------
 
 		--- cria um vetor
 		local buttons = {}
@@ -461,6 +638,13 @@
 		
 		physics.addBody( mob, "dynamic" )
 		mob.isFixedRotation = true
+		ini1.isFixedRotation = true
+		ini2.isFixedRotation = true
+		ini3.isFixedRotation = true
+		ini4.isFixedRotation = true
+		ini5.isFixedRotation = true
+		ini6.isFixedRotation = true
+		ini7.isFixedRotation = true
 
 		
 		sceneGroup:insert(backGroup)
@@ -497,6 +681,15 @@
 			audio.stop( 1 )
 			composer.removeScene( "cena.fase3" )
 			Runtime:removeEventListener("collision",onCollision)
+			
+			Runtime:removeEventListener("collision", CollisionIni1)
+			Runtime:removeEventListener("collision", CollisionIni2)
+			Runtime:removeEventListener("collision", CollisionIni3)
+			Runtime:removeEventListener("collision", CollisionIni4)
+			Runtime:removeEventListener("collision", CollisionIni5)
+			Runtime:removeEventListener("collision", CollisionIni6)
+			Runtime:removeEventListener("collision", CollisionIni7)
+	
 	
 		elseif ( phase == "did" ) then
 			-- Code here runs immediately after the scene goes entirely off screen
@@ -510,6 +703,7 @@
 	
 		local sceneGroup = self.view
 		-- Code here runs prior to the removal of scene's view
+		display.remove(vidasGrupo)
 		physics.stop()
 	
 	end

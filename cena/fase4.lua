@@ -27,8 +27,8 @@
 	
 
 	local function CenaVMenu()
-		audio.stop( 1 )
-		composer.removeScene ("cena.fase1") 
+	--	audio.stop( 1 )
+		composer.removeScene ("cena.fase4") 
 		audio.play(click, { channel=2 })
         audio.setVolume( 2.0, { channel=2 } )
 		composer.gotoScene("cena.menu" , {effect= "crossFade", time= 500})
@@ -36,9 +36,7 @@
 		audio.play( menus, { channel=1, loops=-1 })
 	end
 
-	local function CenaFinal()
-	    composer.gotoScene("cena.cenafinal" , {effect= "crossFade", time= 500})
-   end
+	
 	
 	-- -----------------------------------------------------------------------------------
 	-- Scene event functions
@@ -57,20 +55,8 @@
 		fundo4.x = display.contentCenterX
 		fundo4.y = display.contentCenterY
 
-		------------
-	
-
-		local lab4 = display.newImage(backGroup,"Imagens/lab4.png")
-		lab4.x = display.contentCenterX
-		lab4.y = display.contentCenterY
-
-	-- add o mob
-		local mob = display.newImage(mainGroup,"Imagens/mob.png")
-		mob.x= 700
-		mob.y= 500
-		mob.name = "mob"
----------------------------------------------------------------------------
-        local forma= display.newImageRect(backGroup,"formas/forma.png",15,96)
+	-----------------------------------------------------------------------------
+		local forma= display.newImageRect(backGroup,"formas/forma.png",15,96)
 		forma.x = 269
 		forma.y = 440
 
@@ -151,15 +137,157 @@
 		forma18.x = 253
 		forma18.y = 250
 
+		local forma19= display.newImageRect(backGroup,"formas/forma.png",15,40)
+		forma19.x = 247
+		forma19.y = 340
+
+		local forma20= display.newImageRect(backGroup,"formas/forma.png",15,40)
+		forma20.x = 118
+		forma20.y = 389
+
+		local forma21= display.newImageRect(backGroup,"formas/forma.png",13,40)
+		forma21.x = 155
+		forma21.y = 423
+
+		local forma22= display.newImageRect(backGroup,"formas/forma.png",13,40)
+		forma22.x = 82
+		forma22.y = 425
+
+		local forma23= display.newImageRect(backGroup,"formas/forma.png",150,15)
+		forma23.x = 153
+		forma23.y = 444
+
+		local forma24= display.newImageRect(backGroup,"formas/forma.png",150,13)
+		forma24.x = 113
+		forma24.y = 365
+
+		local forma25= display.newImageRect(backGroup,"formas/forma.png",80,13)
+		forma25.x = 117
+		forma25.y = 321
+
+		local forma26= display.newImageRect(backGroup,"formas/forma.png",84,13)
+		forma26.x = 284
+		forma26.y = 315
+
+		local forma27= display.newImageRect(backGroup,"formas/forma.png",30,13)
+		forma27.x = 304
+		forma27.y = 273
+
+		local forma28= display.newImageRect(backGroup,"formas/forma.png",20,14)
+		forma28.x = 311
+		forma28.y = 439
+
+		local forma29= display.newImageRect(backGroup,"formas/forma.png",20,14)
+		forma29.x = 25
+		forma29.y = 439
+
+		local forma30= display.newImageRect(backGroup,"formas/forma.png",10,11)
+		forma30.x = 6
+		forma30.y = 360
+
+		local forma31= display.newImageRect(backGroup,"formas/forma.png",40,13)
+		forma31.x = 43
+		forma31.y = 200
+
+		local forma32= display.newImageRect(backGroup,"formas/forma.png",55,13)
+		forma32.x = 55
+		forma32.y = 114
+
+		local forma33= display.newImageRect(backGroup,"formas/forma.png",50,13)
+		forma33.x = 28
+		forma33.y = 26
+
+		local forma34= display.newImageRect(backGroup,"formas/forma.png",33,13)
+		forma34.x = 18
+		forma34.y = 158
+
+		local forma35= display.newImageRect(backGroup,"formas/forma.png",45,13)
+		forma35.x = 90
+		forma35.y = 163
+
+		local forma36= display.newImageRect(backGroup,"formas/forma.png",60,13)
+		forma36.x = 93
+		forma36.y = 190
+
+		local forma37= display.newImageRect(backGroup,"formas/forma.png",80,13)
+		forma37.x = 75
+		forma37.y = 285
+
+		local forma38= display.newImageRect(backGroup,"formas/forma.png",30,13)
+		forma38.x = 15
+		forma38.y = 243
+
+		local forma39= display.newImageRect(backGroup,"formas/forma.png",40,13)
+		forma39.x = 120
+		forma39.y = 240
+
+		local forma40= display.newImageRect(backGroup,"formas/forma.png",50,13)
+		forma40.x = 180
+		forma40.y = 223
+
+		local forma41= display.newImageRect(backGroup,"formas/forma.png",55,13)
+		forma41.x = 228
+		forma41.y = 270
+
+		local forma42= display.newImageRect(backGroup,"formas/forma.png",50,13)
+		forma42.x = 270
+		forma42.y = 224
+
+		local forma43= display.newImageRect(backGroup,"formas/forma.png",90,13)
+		forma43.x = 265
+		forma43.y = 183
+
+		local forma43= display.newImageRect(backGroup,"formas/forma.png",42,13)
+		forma43.x = 300
+		forma43.y = 135
+
+		local forma44= display.newImageRect(backGroup,"formas/forma.png",120,13)
+		forma44.x = 240
+		forma44.y = 90
+
+		local forma45= display.newImageRect(backGroup,"formas/forma.png",43,13)
+		forma45.x = 150
+		forma45.y = 142
+   ---------------------------------------------------------------------------------
+		local lab4 = display.newImage(backGroup,"Imagens/lab4.png")
+		lab4.x = display.contentCenterX
+		lab4.y = display.contentCenterY
+
+	-- add o mob-------------------------------------------------------------------
+		local mob = display.newImage(mainGroup,"Imagens/mob.png")
+		mob.x= 700
+		mob.y= 500
+		mob.name = "mob"
+
+---------------------------------------------------------------------------
+		local vmenu = display.newImageRect(mainGroup,"Imagens/vmenu.png",40,40)
+		vmenu.x=20
+		vmenu.y=-25
+		vmenu:addEventListener("tap", CenaVMenu)		
+------------Cristal vermelho---------------------------------------------------------------
+        local cristalred= display.newImageRect(mainGroup,"Imagens/cristalred.png",28,26)
+		cristalred.x=20
+		cristalred.y=400
+		cristalred.id="cristalred"
 		
+---------Colisão entre mob e cristalred-------------------------------------------------------
+		function  CenaFinal()
+		    composer.gotoScene("cena.cenafinal", "fade", 500 )
+		end
 
+	   function onCollision(event) 
+			local object1 = event.object1
+			local object2 = event.object2
 
+			if ( object1.id == "cristalred" and object2.id == "mob"
+			or object1.id == "mob" and object2.id == "cristalred" ) then
+				timer.performWithDelay(	1000, CenaFinal)
+			end 	
+		end
 
+		Runtime:addEventListener("collision", onCollision)
 
-		
-
-
-	
+   
 
 
 	
@@ -251,6 +379,53 @@
 
 		Runtime:addEventListener("enterFrame", update)-- dispara a função update
 
+		-------------------------------------------------------------------------------
+		physics.addBody( forma, "static")
+		physics.addBody( forma2, "static")
+		physics.addBody( forma3, "static")
+		physics.addBody( forma4, "static")
+		physics.addBody( forma5, "static")
+		physics.addBody( forma6, "static")
+		physics.addBody( forma7, "static")
+		physics.addBody( forma8, "static")
+		physics.addBody( forma9, "static")
+		physics.addBody( forma10, "static")
+		physics.addBody( forma11, "static")
+		physics.addBody( forma12, "static")
+		physics.addBody( forma13, "static")
+		physics.addBody( forma14, "static")
+		physics.addBody( forma15, "static")
+		physics.addBody( forma16, "static")
+		physics.addBody( forma17, "static")
+		physics.addBody( forma18, "static")
+		physics.addBody( forma19, "static")
+        physics.addBody( forma20, "static")
+        physics.addBody( forma21, "static")
+        physics.addBody( forma22, "static")
+        physics.addBody( forma23, "static")
+        physics.addBody( forma24, "static")
+        physics.addBody( forma25, "static")
+        physics.addBody( forma26, "static")
+        physics.addBody( forma27, "static")
+        physics.addBody( forma28, "static")
+        physics.addBody( forma29, "static")
+        physics.addBody( forma30, "static")
+        physics.addBody( forma31, "static")
+        physics.addBody( forma32, "static")
+        physics.addBody( forma33, "static")
+        physics.addBody( forma34, "static")
+        physics.addBody( forma35, "static")
+        physics.addBody( forma36, "static")
+        physics.addBody( forma37, "static")
+        physics.addBody( forma38, "static")
+        physics.addBody( forma39, "static")
+        physics.addBody( forma40, "static")
+		physics.addBody( forma41, "static")
+		physics.addBody( forma42, "static")
+		physics.addBody( forma43, "static")
+		physics.addBody( forma44, "static")
+		physics.addBody( forma44, "static")
+
 		
 		physics.addBody( mob, "dynamic" )
 		mob.isFixedRotation = true
@@ -286,8 +461,8 @@
 		local phase = event.phase
 	
 		if ( phase == "will" ) then
-			-- Code here runs when the scene is on screen (but is about to go off screen)
-	
+			composer.removeScene( "cena.fase4" )
+			Runtime:removeEventListener("collision",onCollision)		
 		elseif ( phase == "did" ) then
 			-- Code here runs immediately after the scene goes entirely off screen
 	
