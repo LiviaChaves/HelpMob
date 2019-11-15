@@ -3,6 +3,11 @@ display.setStatusBar (display.HiddenStatusBar)
 	local composer = require( "composer" )
 
 	local scene = composer.newScene()
+	local physics = require( "physics" )
+	physics.start()
+	physics.setGravity(0, 0)   
+	--physics.setDrawMode("hybrid")
+
 
 	local backGroup  = display.newGroup()
 	local mainGroup  = display.newGroup()
@@ -30,11 +35,6 @@ function scene:create( event )
 	
 	local sceneGroup = self.view
 	
-		local physics = require( "physics" )
-		physics.start()
-		physics.setGravity(0, 0)   
-		--physics.setDrawMode("hybrid")
-
 		audio.reserveChannels( 1 )
 		audio.reserveChannels( 2 )
 
@@ -163,7 +163,7 @@ function scene:create( event )
 		lab1.y = display.contentCenterY
 
 -------- add o mob----------------------------------------------------------------------------
-		local mob = display.newImage(mainGroup,"Imagens/mob.png")
+        local mob = display.newImageRect(mainGroup,"Imagens/mob.png",18,23)
 		mob.x= 700
 		mob.y= 500
 		mob.myName = "mob"
@@ -218,25 +218,25 @@ function scene:create( event )
 		ini4.y=220
 		ini4.id="ini4"
 
-		---------Move inimigo----------------------------------------------------------
+		---------Move inimigos----------------------------------------------------------
 		function moveInimigo1()
-			transition.to(ini1,{time=3800,x=math.random(50,100),y=
-			math.random( 10, 100 ),onComplete=moveInimigo1})
+			transition.to(ini1,{time=4000,x=math.random(15,310),y=
+			math.random( 30, 455 ),onComplete=moveInimigo1})
 		end
 		moveInimigo1()
 		function moveInimigo2()
-			transition.to(ini2,{time=3800,x=math.random(60,200),y=
-			math.random( 20, 250 ),onComplete=moveInimigo2})
+			transition.to(ini2,{time=4000,x=math.random(15,310),y=
+			math.random( 30, 455 ),onComplete=moveInimigo2})
 		end
 		moveInimigo2()
 		function moveInimigo3()
-			transition.to(ini3,{time=3800,x=math.random(70,250),y=
-			math.random( 70, 350 ),onComplete=moveInimigo3})
+			transition.to(ini3,{time=4000,x=math.random(15,310),y=
+			math.random( 30, 455 ),onComplete=moveInimigo3})
 		end
 		moveInimigo3()
 		function moveInimigo4()
-			transition.to(ini4,{time=3800,x=math.random(20,210),y=
-			math.random( 67, 184 ),onComplete=moveInimigo4})
+			transition.to(ini4,{time=4000,x=math.random(15,310),y=
+			math.random(30, 455 ),onComplete=moveInimigo4})
 		end
 		moveInimigo4()
 
@@ -254,7 +254,7 @@ function scene:create( event )
 			  or object1.id == "mob" and object2.id == "ini1" ) then
 			
                 display.remove(vidasGrupo)            
-                quantidadeVidas = quantidadeVidas - 0.5
+                quantidadeVidas = quantidadeVidas - 1
                 vidasGrupo = display.newGroup()
                 criarVidas(quantidadeVidas)
 
@@ -271,7 +271,7 @@ function scene:create( event )
 		  or object1.id == "mob" and object2.id == "ini2" ) then
 			
 			display.remove(vidasGrupo)            
-			quantidadeVidas = quantidadeVidas - 0.5
+			quantidadeVidas = quantidadeVidas - 1
 			vidasGrupo = display.newGroup()
 			criarVidas(quantidadeVidas)
 
@@ -288,7 +288,7 @@ function scene:create( event )
 		  or object1.id == "mob" and object2.id == "ini3") then
 		
 			display.remove(vidasGrupo)            
-			quantidadeVidas = quantidadeVidas - 0.5
+			quantidadeVidas = quantidadeVidas - 1
 			vidasGrupo = display.newGroup()
 			criarVidas(quantidadeVidas)
 
@@ -305,7 +305,7 @@ function scene:create( event )
 		  or object1.id == "mob" and object2.id == "ini4") then
 		 
 			display.remove(vidasGrupo)            
-			quantidadeVidas = quantidadeVidas - 0.5
+			quantidadeVidas = quantidadeVidas - 1
 			vidasGrupo = display.newGroup()
 			criarVidas(quantidadeVidas)
 

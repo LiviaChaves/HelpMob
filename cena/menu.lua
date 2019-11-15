@@ -39,9 +39,9 @@ function scene:create( event )
    
 
 
-    local mobM = display.newImageRect(mainGroup,"Imagens/mobM.png",56,82)
-	mobM.x= 155
-	mobM.y= 319
+    local mob = display.newImageRect(mainGroup,"Imagens/mob.png",56,82)
+	mob.x= 155
+	mob.y= 319
 
     
     button = display.newImageRect(uiGroup, "Imagens/button.png",242,174)

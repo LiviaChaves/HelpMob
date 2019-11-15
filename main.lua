@@ -7,4 +7,4 @@
 -- Your code here
   
 local composer = require( "composer" )
-composer.gotoScene("cena.fase4", {effect= "crossFade", time= 500})
+composer.gotoScene("cena.menu", {effect= "crossFade", time= 500})

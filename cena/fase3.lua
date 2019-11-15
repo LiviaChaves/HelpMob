@@ -252,7 +252,7 @@
 		lab3.x = display.contentCenterX
 		lab3.y = display.contentCenterY
 	-- add o mob-------------------------------------------------
-		local mob = display.newImage(mainGroup,"Imagens/mob.png")
+	    local mob = display.newImageRect(mainGroup,"Imagens/mob.png",18,23)
 		mob.x= 700
 		mob.y= 500
 		mob.myName = "mob"
@@ -322,43 +322,43 @@
 	ini7.x=30
 	ini7.y=420
 	ini7.id="ini7"
-	----------MOVE INIMIGO-------------------------------------------------------------------------------------------
+	----------MOVE INIMIGOS-------------------------------------------------------------------------------------------
 	function moveInimigo1()
-		transition.to(ini1,{time=3500,x=math.random(50,150),y=
-		math.random( 10, 150 ),onComplete=moveInimigo1})
+		transition.to(ini1,{time=3500,x=math.random(25,295),y=
+		math.random( 45, 447 ),onComplete=moveInimigo1})
 	end
 	moveInimigo1()
 	function moveInimigo2()
-		transition.to(ini2,{time=3500,x=math.random(90,500),y=
-		math.random( 20, 250 ),onComplete=moveInimigo2})
+		transition.to(ini2,{time=3500,x=math.random(25,295),y=
+		math.random( 45, 447 ),onComplete=moveInimigo2})
 	end
 	moveInimigo2()
 	function moveInimigo3()
-		transition.to(ini3,{time=3500,x=math.random(70,400),y=
-		math.random( 110, 150 ),onComplete=moveInimigo3})
+		transition.to(ini3,{time=3500,x=math.random(25,295),y=
+		math.random( 45, 447 ),onComplete=moveInimigo3})
 	end
 	moveInimigo3()
 	function moveInimigo4()
-		transition.to(ini4,{time=3500,x=math.random(27,350),y=
-		math.random( 60, 104 ),onComplete=moveInimigo4})
+		transition.to(ini4,{time=3500,x=math.random(25,295),y=
+		math.random( 45, 447 ),onComplete=moveInimigo4})
 	end
 	moveInimigo4()
 
 	function moveInimigo5()
-		transition.to(ini5,{time=3500,x=math.random(79,210),y=
-		math.random( 30, 384 ),onComplete=moveInimigo5})
+		transition.to(ini5,{time=3500,x=math.random(25,295),y=
+		math.random( 45, 447 ),onComplete=moveInimigo5})
 	end
 	moveInimigo5()
 
 	function moveInimigo6()
-		transition.to(ini6,{time=3500,x=math.random(300,400),y=
-		math.random( 19, 300 ),onComplete=moveInimigo6})
+		transition.to(ini6,{time=3500,x=math.random(25,295),y=
+		math.random(45, 447 ),onComplete=moveInimigo6})
 	end
 	moveInimigo6()
 
 	function moveInimigo7()
-		transition.to(ini7,{time=3500,x=math.random(90,100),y=
-		math.random( 101, 210 ),onComplete=moveInimigo7})
+		transition.to(ini7,{time=3500,x=math.random(25,295),y=
+		math.random(45, 447 ),onComplete=moveInimigo7})
 	end
 	moveInimigo7()
 
