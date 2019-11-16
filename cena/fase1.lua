@@ -221,22 +221,22 @@ function scene:create( event )
 
 		---------Move inimigos----------------------------------------------------------
 		function moveInimigo1()
-			transition.to(ini1,{time=5100,x=math.random(15,310),y=
+			transition.to(ini1,{time=8000,x=math.random(15,310),y=
 			math.random( 30, 455 ),onComplete=moveInimigo1})
 		end
 		moveInimigo1()
 		function moveInimigo2()
-			transition.to(ini2,{time=5100,x=math.random(15,310),y=
+			transition.to(ini2,{time=8000,x=math.random(15,310),y=
 			math.random( 30, 455 ),onComplete=moveInimigo2})
 		end
 		moveInimigo2()
 		function moveInimigo3()
-			transition.to(ini3,{time=5100,x=math.random(15,310),y=
+			transition.to(ini3,{time=8000,x=math.random(15,310),y=
 			math.random( 30, 455 ),onComplete=moveInimigo3})
 		end
 		moveInimigo3()
 		function moveInimigo4()
-			transition.to(ini4,{time=5100,x=math.random(15,310),y=
+			transition.to(ini4,{time=8000,x=math.random(15,310),y=
 			math.random(30, 455 ),onComplete=moveInimigo4})
 		end
 		moveInimigo4()
