@@ -417,7 +417,7 @@ display.setStatusBar (display.HiddenStatusBar)
 		if ( object1.id == "ini1" and object2.id == "mob"
 			or object1.id == "mob" and object2.id == "ini1" ) then
 				display.remove(vidasGrupo)            
-				quantidadeVidas = quantidadeVidas - 1
+				quantidadeVidas = quantidadeVidas - 0.5
 				vidasGrupo = display.newGroup()
 				criarVidas(quantidadeVidas)
 
@@ -434,7 +434,7 @@ display.setStatusBar (display.HiddenStatusBar)
 			or object1.id == "mob" and object2.id == "ini2" ) then
 				
 				display.remove(vidasGrupo)            
-				quantidadeVidas = quantidadeVidas - 1
+				quantidadeVidas = quantidadeVidas - 0.5
 				vidasGrupo = display.newGroup()
 				criarVidas(quantidadeVidas)
 
@@ -450,7 +450,7 @@ display.setStatusBar (display.HiddenStatusBar)
 		if ( object1.id == "ini3" and object2.id == "mob"
 			or object1.id == "mob" and object2.id == "ini3") then
 				display.remove(vidasGrupo)            
-				quantidadeVidas = quantidadeVidas - 1
+				quantidadeVidas = quantidadeVidas - 0.5
 				vidasGrupo = display.newGroup()
 				criarVidas(quantidadeVidas)
 
@@ -467,7 +467,7 @@ display.setStatusBar (display.HiddenStatusBar)
 			or object1.id == "mob" and object2.id == "ini4") then
 				
 				display.remove(vidasGrupo)            
-				quantidadeVidas = quantidadeVidas - 1
+				quantidadeVidas = quantidadeVidas - 0.5
 				vidasGrupo = display.newGroup()
 				criarVidas(quantidadeVidas)
 
