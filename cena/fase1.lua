@@ -221,22 +221,22 @@ function scene:create( event )
 
 		---------Move inimigos----------------------------------------------------------
 		function moveInimigo1()
-			transition.to(ini1,{time=8000,x=math.random(15,310),y=
+			transition.to(ini1,{time=13000,x=math.random(15,310),y=
 			math.random( 30, 455 ),onComplete=moveInimigo1})
 		end
 		moveInimigo1()
 		function moveInimigo2()
-			transition.to(ini2,{time=8000,x=math.random(15,310),y=
+			transition.to(ini2,{time=13000,x=math.random(15,310),y=
 			math.random( 30, 455 ),onComplete=moveInimigo2})
 		end
 		moveInimigo2()
 		function moveInimigo3()
-			transition.to(ini3,{time=8000,x=math.random(15,310),y=
+			transition.to(ini3,{time=13000,x=math.random(15,310),y=
 			math.random( 30, 455 ),onComplete=moveInimigo3})
 		end
 		moveInimigo3()
 		function moveInimigo4()
-			transition.to(ini4,{time=8000,x=math.random(15,310),y=
+			transition.to(ini4,{time=13000,x=math.random(15,310),y=
 			math.random(30, 455 ),onComplete=moveInimigo4})
 		end
 		moveInimigo4()
@@ -256,7 +256,7 @@ function scene:create( event )
 			  or object1.id == "mob" and object2.id == "ini1" ) then
 			  
                 display.remove(vidasGrupo)            
-                quantidadeVidas = quantidadeVidas - 0.5
+                quantidadeVidas = quantidadeVidas - 1
                 vidasGrupo = display.newGroup()
                 criarVidas(quantidadeVidas)
 
@@ -274,7 +274,7 @@ function scene:create( event )
 		  or object1.id == "mob" and object2.id == "ini2" ) then
 	
 			display.remove(vidasGrupo)            
-			quantidadeVidas = quantidadeVidas - 0.5
+			quantidadeVidas = quantidadeVidas - 1
 			vidasGrupo = display.newGroup()
 			criarVidas(quantidadeVidas)
 
@@ -291,7 +291,7 @@ function scene:create( event )
 		  or object1.id == "mob" and object2.id == "ini3") then
 		   
 			display.remove(vidasGrupo)            
-			quantidadeVidas = quantidadeVidas - 0.5
+			quantidadeVidas = quantidadeVidas - 1
 			vidasGrupo = display.newGroup()
 			criarVidas(quantidadeVidas)
 
@@ -308,7 +308,7 @@ function scene:create( event )
 		  or object1.id == "mob" and object2.id == "ini4") then
 		  
 			display.remove(vidasGrupo)            
-			quantidadeVidas = quantidadeVidas - 0.5
+			quantidadeVidas = quantidadeVidas - 1
 			vidasGrupo = display.newGroup()
 			criarVidas(quantidadeVidas)
 

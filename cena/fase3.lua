@@ -1,5 +1,4 @@
-
-	display.setStatusBar (display.HiddenStatusBar)	
+display.setStatusBar (display.HiddenStatusBar)	
 
 	local composer = require( "composer" )
 
@@ -287,27 +286,27 @@
 		Runtime:addEventListener("collision", onCollision)
 		
 	-----Inimigos-----------------------------------------------------------------------------------------------------
-	local ini1 =display.newImageRect(mainGroup,"Imagens/im3.png",45,45)
-	ini1.x=93
-	ini1.y=50
-	ini1.id="ini1"
+		local ini1 =display.newImageRect(mainGroup,"Imagens/im3.png",45,45)
+		ini1.x=93
+		ini1.y=50
+		ini1.id="ini1"
 
-	local ini2 =display.newImageRect(mainGroup,"Imagens/im3.png",45,45)
-	ini2.x=190
-	ini2.y=20
-	ini2.id="ini2"
+		local ini2 =display.newImageRect(mainGroup,"Imagens/im3.png",45,45)
+		ini2.x=190
+		ini2.y=20
+		ini2.id="ini2"
 
-	local ini3 =display.newImageRect(mainGroup,"Imagens/im3.png",45,45)
-	ini3.x=200
-	ini3.y=400
-	ini3.id="ini3"
+		local ini3 =display.newImageRect(mainGroup,"Imagens/im3.png",45,45)
+		ini3.x=200
+		ini3.y=400
+		ini3.id="ini3"
 
-	local ini4 =display.newImageRect(mainGroup,"Imagens/im3.png",45,45)
-	ini4.x=300
-	ini4.y=120
-	ini4.id="ini4"
+		local ini4 =display.newImageRect(mainGroup,"Imagens/im3.png",45,45)
+		ini4.x=300
+		ini4.y=120
+		ini4.id="ini4"
 
-	local ini5 =display.newImageRect(mainGroup,"Imagens/im3.png",45,45)
+	--[[local ini5 =display.newImageRect(mainGroup,"Imagens/im3.png",45,45)
 	ini5.x=80
 	ini5.y=300
 	ini5.id="ini5"
@@ -322,29 +321,30 @@
 	ini7.x=30
 	ini7.y=420
 	ini7.id="ini7"
+	]]--
 	----------MOVE INIMIGOS-------------------------------------------------------------------------------------------
 	function moveInimigo1()
-		transition.to(ini1,{time=20000,x=math.random(25,295),y=
+		transition.to(ini1,{time=33000,x=math.random(25,295),y=
 		math.random( 45, 447 ),onComplete=moveInimigo1})
 	end
 	moveInimigo1()
 	function moveInimigo2()
-		transition.to(ini2,{time=20000,x=math.random(25,295),y=
+		transition.to(ini2,{time=33000,x=math.random(25,295),y=
 		math.random( 45, 447 ),onComplete=moveInimigo2})
 	end
 	moveInimigo2()
 	function moveInimigo3()
-		transition.to(ini3,{time=20000,x=math.random(25,295),y=
+		transition.to(ini3,{time=33000,x=math.random(25,295),y=
 		math.random( 45, 447 ),onComplete=moveInimigo3})
 	end
 	moveInimigo3()
 	function moveInimigo4()
-		transition.to(ini4,{time=20000,x=math.random(25,295),y=
+		transition.to(ini4,{time=33000,x=math.random(25,295),y=
 		math.random( 45, 447 ),onComplete=moveInimigo4})
 	end
 	moveInimigo4()
 
-	function moveInimigo5()
+	--[[function moveInimigo5()
 		transition.to(ini5,{time=20000,x=math.random(25,295),y=
 		math.random( 45, 447 ),onComplete=moveInimigo5})
 	end
@@ -361,7 +361,7 @@
 		math.random(45, 447 ),onComplete=moveInimigo7})
 	end
 	moveInimigo7()
-
+]]--
 ---------------Collision Inimigo-----------------------------------------------------------------------------
 	function  GameOver()
 		composer.gotoScene("cena.gameover", "fade", 500 )
@@ -373,7 +373,7 @@
 	if ( object1.id == "ini1" and object2.id == "mob"
 		or object1.id == "mob" and object2.id == "ini1" ) then
 			display.remove(vidasGrupo)            
-			quantidadeVidas = quantidadeVidas - 0.5
+			quantidadeVidas = quantidadeVidas - 1
 			vidasGrupo = display.newGroup()
 			criarVidas(quantidadeVidas)
 
@@ -390,7 +390,7 @@
 		or object1.id == "mob" and object2.id == "ini2" ) then
 			
 			display.remove(vidasGrupo)            
-			quantidadeVidas = quantidadeVidas - 0.5
+			quantidadeVidas = quantidadeVidas - 1
 			vidasGrupo = display.newGroup()
 			criarVidas(quantidadeVidas)
 
@@ -406,7 +406,7 @@ end
 	if ( object1.id == "ini3" and object2.id == "mob"
 		or object1.id == "mob" and object2.id == "ini3") then
 			display.remove(vidasGrupo)            
-			quantidadeVidas = quantidadeVidas - 0.5
+			quantidadeVidas = quantidadeVidas - 1
 			vidasGrupo = display.newGroup()
 			criarVidas(quantidadeVidas)
 
@@ -423,7 +423,7 @@ end
 		or object1.id == "mob" and object2.id == "ini4") then
 			
 			display.remove(vidasGrupo)            
-			quantidadeVidas = quantidadeVidas - 0.5
+			quantidadeVidas = quantidadeVidas - 1 
 			vidasGrupo = display.newGroup()
 			criarVidas(quantidadeVidas)
 
@@ -433,7 +433,7 @@ end
 	end 	
 end
 
-	function CollisionIni5(event) 
+--[[	function CollisionIni5(event) 
 		local object1 = event.object1
 		local object2 = event.object2
 	if ( object1.id == "ini5" and object2.id == "mob"
@@ -483,14 +483,14 @@ end
 			end
 		end 
 	end 
-	
+	]]--
 	Runtime:addEventListener("collision", CollisionIni1)
 	Runtime:addEventListener("collision", CollisionIni2)
 	Runtime:addEventListener("collision", CollisionIni3)
 	Runtime:addEventListener("collision", CollisionIni4)
-	Runtime:addEventListener("collision", CollisionIni5)
-	Runtime:addEventListener("collision", CollisionIni6)
-	Runtime:addEventListener("collision", CollisionIni7)
+	--Runtime:addEventListener("collision", CollisionIni5)
+	--Runtime:addEventListener("collision", CollisionIni6)
+	--Runtime:addEventListener("collision", CollisionIni7)
 	
 ------criação dos botões de movimentação-------------------------------------------------------
 
@@ -632,9 +632,9 @@ end
 		physics.addBody( ini2, "dynamic" )
 		physics.addBody( ini3, "dynamic" )
 		physics.addBody( ini4, "dynamic" )
-		physics.addBody( ini5, "dynamic" )
-		physics.addBody( ini6, "dynamic" )
-		physics.addBody( ini7, "dynamic" )
+		--physics.addBody( ini5, "dynamic" )
+		--physics.addBody( ini6, "dynamic" )
+		--physics.addBody( ini7, "dynamic" )
 		
 		physics.addBody( mob, "dynamic" )
 		mob.isFixedRotation = true
@@ -642,9 +642,9 @@ end
 		ini2.isFixedRotation = true
 		ini3.isFixedRotation = true
 		ini4.isFixedRotation = true
-		ini5.isFixedRotation = true
-		ini6.isFixedRotation = true
-		ini7.isFixedRotation = true
+		--ini5.isFixedRotation = true
+		--ini6.isFixedRotation = true
+		--ini7.isFixedRotation = true
 
 		
 		sceneGroup:insert(backGroup)
@@ -686,10 +686,10 @@ end
 			Runtime:removeEventListener("collision", CollisionIni2)
 			Runtime:removeEventListener("collision", CollisionIni3)
 			Runtime:removeEventListener("collision", CollisionIni4)
-			Runtime:removeEventListener("collision", CollisionIni5)
+		--[[Runtime:removeEventListener("collision", CollisionIni5)
 			Runtime:removeEventListener("collision", CollisionIni6)
 			Runtime:removeEventListener("collision", CollisionIni7)
-	
+	      ]]--
 	
 		elseif ( phase == "did" ) then
 			-- Code here runs immediately after the scene goes entirely off screen
