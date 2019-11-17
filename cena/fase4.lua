@@ -16,7 +16,7 @@ display.setStatusBar (display.HiddenStatusBar)
 	local physics = require( "physics" )
 	physics.start()
 	physics.setGravity(0, 0)
---physics.setDrawMode("hybrid")
+   -- physics.setDrawMode("hybrid")
 
 
 
@@ -128,133 +128,133 @@ display.setStatusBar (display.HiddenStatusBar)
 		forma16.x = 150
 		forma16.y = 270
 
-		local forma16= display.newImageRect(backGroup,"formas/forma.png",15,100)
-		forma16.x = 214
-		forma16.y = 180
-
-		local forma16= display.newImageRect(backGroup,"formas/forma.png",15,40)
-		forma16.x = 167
-		forma16.y = 200
-
-		local forma17= display.newImageRect(backGroup,"formas/forma.png",15,40)
-		forma17.x = 251
-		forma17.y = 153
+		local forma17= display.newImageRect(backGroup,"formas/forma.png",15,100)
+		forma17.x = 214
+		forma17.y = 180
 
 		local forma18= display.newImageRect(backGroup,"formas/forma.png",15,40)
-		forma18.x = 253
-		forma18.y = 250
+		forma18.x = 167
+		forma18.y = 200
 
 		local forma19= display.newImageRect(backGroup,"formas/forma.png",15,40)
-		forma19.x = 247
-		forma19.y = 340
+		forma19.x = 251
+		forma19.y = 153
 
 		local forma20= display.newImageRect(backGroup,"formas/forma.png",15,40)
-		forma20.x = 118
-		forma20.y = 389
+		forma20.x = 253
+		forma20.y = 250
 
-		local forma21= display.newImageRect(backGroup,"formas/forma.png",13,40)
-		forma21.x = 155
-		forma21.y = 423
+		local forma21= display.newImageRect(backGroup,"formas/forma.png",15,40)
+		forma21.x = 247
+		forma21.y = 340
 
-		local forma22= display.newImageRect(backGroup,"formas/forma.png",13,40)
-		forma22.x = 82
-		forma22.y = 425
+		local forma22= display.newImageRect(backGroup,"formas/forma.png",15,40)
+		forma22.x = 118
+		forma22.y = 389
 
-		local forma23= display.newImageRect(backGroup,"formas/forma.png",150,15)
-		forma23.x = 153
-		forma23.y = 444
+		local forma23= display.newImageRect(backGroup,"formas/forma.png",13,40)
+		forma23.x = 155
+		forma23.y = 423
 
-		local forma24= display.newImageRect(backGroup,"formas/forma.png",150,13)
-		forma24.x = 113
-		forma24.y = 365
+		local forma24= display.newImageRect(backGroup,"formas/forma.png",13,40)
+		forma24.x = 82
+		forma24.y = 425
 
-		local forma25= display.newImageRect(backGroup,"formas/forma.png",80,13)
-		forma25.x = 117
-		forma25.y = 321
+		local forma25= display.newImageRect(backGroup,"formas/forma.png",150,15)
+		forma25.x = 153
+		forma25.y = 444
 
-		local forma26= display.newImageRect(backGroup,"formas/forma.png",84,13)
-		forma26.x = 284
-		forma26.y = 315
+		local forma26= display.newImageRect(backGroup,"formas/forma.png",150,13)
+		forma26.x = 113
+		forma26.y = 365
 
-		local forma27= display.newImageRect(backGroup,"formas/forma.png",30,13)
-		forma27.x = 304
-		forma27.y = 273
+		local forma27= display.newImageRect(backGroup,"formas/forma.png",80,13)
+		forma27.x = 117
+		forma27.y = 321
 
-		local forma28= display.newImageRect(backGroup,"formas/forma.png",20,14)
-		forma28.x = 311
-		forma28.y = 439
+		local forma28= display.newImageRect(backGroup,"formas/forma.png",84,13)
+		forma28.x = 284
+		forma28.y = 315
 
-		local forma29= display.newImageRect(backGroup,"formas/forma.png",20,14)
-		forma29.x = 25
-		forma29.y = 439
+		local forma29= display.newImageRect(backGroup,"formas/forma.png",30,13)
+		forma29.x = 304
+		forma29.y = 273
 
-		local forma30= display.newImageRect(backGroup,"formas/forma.png",10,11)
-		forma30.x = 6
-		forma30.y = 360
+		local forma30= display.newImageRect(backGroup,"formas/forma.png",20,14)
+		forma30.x = 311
+		forma30.y = 439
 
-		local forma31= display.newImageRect(backGroup,"formas/forma.png",40,13)
-		forma31.x = 43
-		forma31.y = 200
+		local forma31= display.newImageRect(backGroup,"formas/forma.png",20,14)
+		forma31.x = 25
+		forma31.y = 439
 
-		local forma32= display.newImageRect(backGroup,"formas/forma.png",55,13)
-		forma32.x = 55
-		forma32.y = 114
+		local forma32= display.newImageRect(backGroup,"formas/forma.png",10,11)
+		forma32.x = 6
+		forma32.y = 360
 
-		local forma33= display.newImageRect(backGroup,"formas/forma.png",50,13)
-		forma33.x = 28
-		forma33.y = 26
+		local forma33= display.newImageRect(backGroup,"formas/forma.png",40,13)
+		forma33.x = 43
+		forma33.y = 200
 
-		local forma34= display.newImageRect(backGroup,"formas/forma.png",33,13)
-		forma34.x = 18
-		forma34.y = 158
+		local forma34= display.newImageRect(backGroup,"formas/forma.png",55,13)
+		forma34.x = 55
+		forma34.y = 114
 
-		local forma35= display.newImageRect(backGroup,"formas/forma.png",45,13)
-		forma35.x = 90
-		forma35.y = 163
+		local forma35= display.newImageRect(backGroup,"formas/forma.png",50,13)
+		forma35.x = 28
+		forma35.y = 26
 
-		local forma36= display.newImageRect(backGroup,"formas/forma.png",60,13)
-		forma36.x = 93
-		forma36.y = 190
+		local forma36= display.newImageRect(backGroup,"formas/forma.png",33,13)
+		forma36.x = 18
+		forma36.y = 158
 
-		local forma37= display.newImageRect(backGroup,"formas/forma.png",80,13)
-		forma37.x = 75
-		forma37.y = 285
+		local forma37= display.newImageRect(backGroup,"formas/forma.png",45,13)
+		forma37.x = 90
+		forma37.y = 163
 
-		local forma38= display.newImageRect(backGroup,"formas/forma.png",30,13)
-		forma38.x = 15
-		forma38.y = 243
+		local forma38= display.newImageRect(backGroup,"formas/forma.png",60,13)
+		forma38.x = 93
+		forma38.y = 190
 
-		local forma39= display.newImageRect(backGroup,"formas/forma.png",40,13)
-		forma39.x = 120
-		forma39.y = 240
+		local forma39= display.newImageRect(backGroup,"formas/forma.png",80,13)
+		forma39.x = 75
+		forma39.y = 285
 
-		local forma40= display.newImageRect(backGroup,"formas/forma.png",50,13)
-		forma40.x = 180
-		forma40.y = 223
+		local forma40= display.newImageRect(backGroup,"formas/forma.png",30,13)
+		forma40.x = 15
+		forma40.y = 243
 
-		local forma41= display.newImageRect(backGroup,"formas/forma.png",55,13)
-		forma41.x = 228
-		forma41.y = 270
+		local forma41= display.newImageRect(backGroup,"formas/forma.png",40,13)
+		forma41.x = 120
+		forma41.y = 240
 
 		local forma42= display.newImageRect(backGroup,"formas/forma.png",50,13)
-		forma42.x = 270
-		forma42.y = 224
+		forma42.x = 180
+		forma42.y = 223
 
-		local forma43= display.newImageRect(backGroup,"formas/forma.png",90,13)
-		forma43.x = 265
-		forma43.y = 183
+		local forma43= display.newImageRect(backGroup,"formas/forma.png",55,13)
+		forma43.x = 228
+		forma43.y = 270
 
-		local forma44= display.newImageRect(backGroup,"formas/forma.png",42,13)
-		forma44.x = 300
-		forma44.y = 135
+		local forma44= display.newImageRect(backGroup,"formas/forma.png",50,13)
+		forma44.x = 270
+		forma44.y = 224
 
-		local forma45= display.newImageRect(backGroup,"formas/forma.png",120,13)
-		forma45.x = 240
-		forma45.y = 90
+		local forma45= display.newImageRect(backGroup,"formas/forma.png",90,13)
+		forma45.x = 265
+		forma45.y = 183
 
-		local forma46= display.newImageRect(backGroup,"formas/forma.png",43,13)
-		forma46.x = 150
-		forma46.y = 142
+		local forma46= display.newImageRect(backGroup,"formas/forma.png",42,13)
+		forma46.x = 300
+		forma46.y = 135
+
+		local forma47= display.newImageRect(backGroup,"formas/forma.png",120,13)
+		forma47.x = 240
+		forma47.y = 90
+
+		local forma48= display.newImageRect(backGroup,"formas/forma.png",43,13)
+		forma48.x = 150
+		forma48.y = 142
 
    ----------------VIDAS-------------------------------------------------------------
 	local quantidadeVidas = 3
@@ -706,6 +706,9 @@ display.setStatusBar (display.HiddenStatusBar)
 		physics.addBody( forma44, "static")
 		physics.addBody( forma45, "static")
 		physics.addBody( forma46, "static")
+		physics.addBody( forma47, "static")
+		physics.addBody( forma48, "static")
+		physics.addBody( cristalred, "static")
 		physics.addBody( ini1, "dynamic" )
 		physics.addBody( ini2, "dynamic" )
 		physics.addBody( ini3, "dynamic" )
