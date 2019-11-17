@@ -308,22 +308,22 @@ display.setStatusBar (display.HiddenStatusBar)
 		Runtime:addEventListener("collision", onCollision)
 
 --------INIMIGOS------------------------------------------------------------------------------------------
-		local ini1 =display.newImageRect(mainGroup,"Imagens/im4.png",45,45)
+		local ini1 =display.newImageRect(mainGroup,"Imagens/im4.png",25,25)
 		ini1.x=93
 		ini1.y=50
 		ini1.id="ini1"
 
-		local ini2 =display.newImageRect(mainGroup,"Imagens/im4.png",45,45)
+		local ini2 =display.newImageRect(mainGroup,"Imagens/im4.png",25,25)
 		ini2.x=190
 		ini2.y=20
 		ini2.id="ini2"
 
-		local ini3 =display.newImageRect(mainGroup,"Imagens/im4.png",45,45)
+		local ini3 =display.newImageRect(mainGroup,"Imagens/im4.png",25,25)
 		ini3.x=200
 		ini3.y=400
 		ini3.id="ini3"
 
-		local ini4 =display.newImageRect(mainGroup,"Imagens/im4.png",45,45)
+		local ini4 =display.newImageRect(mainGroup,"Imagens/im4.png",25,25)
 		ini4.x=300
 		ini4.y=120
 		ini4.id="ini4"

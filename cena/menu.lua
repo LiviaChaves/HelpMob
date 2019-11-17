@@ -16,7 +16,7 @@ local function Cenagame()
     audio.stop( 1 )
     audio.play(click, { channel=2 })
     audio.setVolume( 2.0, { channel=2 } )
-    composer.gotoScene("cena.fase1" , {effect= "crossFade", time= 500})
+    composer.gotoScene("cena.fase3" , {effect= "crossFade", time= 500})
 end
 
 
